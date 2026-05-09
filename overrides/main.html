@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{# Inject noindex/nofollow on UAT pages so search engines that ignore
+   robots.txt still skip them. Belt-and-braces with /robots.txt. #}
+{% block extrahead %}
+  {% if page and page.url and page.url.startswith('uat/') %}
+    <meta name="robots" content="noindex, nofollow">
+  {% endif %}
+{% endblock %}

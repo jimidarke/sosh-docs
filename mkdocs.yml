@@ -41,10 +41,15 @@ plugins:
   - search
   - tags
 
+extra_javascript:
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - javascripts/tablesort.js
+
 markdown_extensions:
   - admonition
   - attr_list
   - md_in_html
+  - tables
   - pymdownx.details
   - pymdownx.highlight:
       anchor_linenums: true
@@ -66,3 +71,10 @@ extra:
 
 nav:
   - Home: index.md
+
+# UAT pages are deliberately omitted from `nav:` — they're public but
+# unlisted. Reachable only via direct URL (docs.sovereignshelf.net/uat/),
+# excluded from internal search (per-page front matter), tagged
+# `noindex` (overrides/main.html), and disallowed in robots.txt.
+not_in_nav: |
+  uat/*
