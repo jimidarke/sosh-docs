@@ -63,7 +63,9 @@
     
   
   
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&display=swap">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&display=swap">
+  
 
   </head>
   
@@ -1657,43 +1659,44 @@
 <ol>
 <li>Tap the <strong>Stock</strong> tab at the bottom of the screen.</li>
 <li>Scan the product's barcode with the handheld's scanner. If it matches exactly one product, the app jumps straight to the product page — you're done searching.</li>
-<li>Prefer to type? Tap the search box and enter part of the product's name, SKU, or barcode. Results appear after a short pause. Tap the one you want.</li>
+<li>Prefer to type? Tap the search box and enter part of the product's name, SKU, or barcode. The search fires as soon as you have typed <strong>three characters</strong>. Tap the result you want.</li>
 </ol>
+<p><img alt="The Stock tab search screen, with the search box and the Type instead button outlined" src="../../assets/app/stock-search-type-instead.png" /></p>
 <div class="admonition tip">
 <p class="admonition-title">Keyboard not popping up?</p>
-<p>Tap <strong>Type instead</strong>. The app opens its own on-screen keyboard. This happens when the barcode scanner blocks the phone's normal keyboard — it's not broken.</p>
+<p>Tap <strong>Type instead</strong>. The app opens its own on-screen keyboard. This happens when the barcode scanner blocks the phone's normal keyboard — it's not broken. Type your search, then tap <strong>OK</strong>.</p>
 </div>
-<div class="admonition screenshot">
-<p class="admonition-title">Screenshot: Stock tab search screen, with the search box and the Type instead button highlighted</p>
-<p>To capture: assets/app/stock-search-type-instead.png</p>
-</div>
+<p><img alt="The app's own on-screen keyboard, opened with Type instead" src="../../assets/app/stock-type-instead-keyboard.png" /></p>
+<p>Each result shows the product's name, SKU, and barcode, with a stock count on the right. The count is colour-coded, so you can judge availability before you even open the product: <strong>green</strong> means 5 or more, <strong>amber</strong> means 1 to 4, and <strong>red</strong> means none.</p>
+<p><img alt="A search result row, with the colour-coded stock count outlined" src="../../assets/app/stock-search-results.png" /></p>
 <h2 id="read-the-product-page">Read the product page<a class="headerlink" href="#read-the-product-page" title="Permanent link">&para;</a></h2>
-<p>The product page shows everything at a glance:</p>
+<p>The top of the product page is a grid of eight tiles:</p>
 <ul>
-<li><strong>Price</strong> — with a note under it showing how recently it updated.</li>
-<li><strong>On hand</strong> — how many are in stock, colour-coded: green means 5 or more, yellow means 1 to 4, red means none.</li>
-<li><strong>Sale</strong> — the sale price and its start and end dates. This only appears while a sale is on.</li>
-<li><strong>Bin location</strong> — where the product lives in the store.</li>
+<li><strong>On hand</strong> — how many are in stock, colour-coded with the same green / amber / red rule as the search results.</li>
+<li><strong>Price</strong> — the price the shelf tag will show. While a sale is on, this is the sale price, with the regular price and the time of the last update underneath.</li>
+<li><strong>Sale</strong> — the sale price and the dates it runs between. With no sale on, it reads "no active sale".</li>
+<li><strong>Bin</strong> — where the product lives in the store.</li>
+<li><strong>Last counted</strong> — when this product's stock was last counted.</li>
+<li><strong>Status</strong> — whether the product is still active in your catalogue.</li>
+<li><strong>Supplier SKU</strong> — your supplier's own code for the product.</li>
+<li><strong>Template</strong> — the tag layout this product uses by default.</li>
 </ul>
-<div class="admonition screenshot">
-<p class="admonition-title">Screenshot: product page with the stat grid visible — On hand, Price, Sale, and Bin location highlighted</p>
-<p>To capture: assets/app/stock-product-detail-stat-grid.png</p>
-</div>
+<p><img alt="The product page stat grid, with On hand, Price, Sale, and Bin outlined" src="../../assets/app/stock-product-detail-stat-grid.png" /></p>
+<p>Underneath the grid, <strong>Stock detail</strong> gives the reorder point and min/max levels, and <strong>Product info</strong> gives the vendor, category, and description.</p>
 <details class="note">
 <summary>More details</summary>
-<p>Tap the <strong>More details</strong> section near the bottom of the page to see extra barcodes and other product fields. You won't need it often.</p>
+<p>Tap the <strong>More details</strong> section at the very bottom of the page to see extra barcodes and other product fields. You won't need it often.</p>
 </details>
 <h2 id="find-its-shelf-tags">Find its shelf tags<a class="headerlink" href="#find-its-shelf-tags" title="Permanent link">&para;</a></h2>
-<p>Below the product info, the <strong>Shelf tags</strong> row shows a chip for every tag this product is on.</p>
+<p>Scroll down to <strong>Bound ESL tags</strong>. There is a card for every tag this product is on — the heading tells you how many — and each card shows the tag's code, its type, and when it last synced.</p>
+<p><img alt="The Bound ESL tags strip on the product page" src="../../assets/app/stock-bound-tags-strip.png" /></p>
 <ol>
-<li>Tap a chip. A panel slides up with a picture of exactly what that tag is showing on the shelf right now.</li>
-<li>Tap a Flash colour — <strong>Red</strong>, <strong>Green</strong>, or <strong>Blue</strong>. The tag's light blinks on the shelf.</li>
+<li>Tap a card. Each one is labelled <strong>Tap for preview &amp; flash</strong>. A panel slides up.</li>
+<li>At the top of the panel is a picture of exactly what that tag is showing on the shelf right now, followed by its battery, signal, and firmware.</li>
+<li>Under <strong>Flash to find on shelf</strong>, tap <strong>Red</strong>, <strong>Green</strong>, or <strong>Blue</strong>. The tag's light blinks on the shelf in that colour.</li>
 <li>Walk toward the blinking light to find the tag.</li>
 </ol>
-<div class="admonition screenshot">
-<p class="admonition-title">Screenshot: tag panel open, with the tag preview picture and the Red/Green/Blue flash buttons highlighted</p>
-<p>To capture: assets/app/stock-tag-sheet-flash-row.png</p>
-</div>
+<p><img alt="The tag panel, with the tag preview picture and the Red, Green, and Blue flash buttons outlined" src="../../assets/app/stock-tag-sheet-flash-row.png" /></p>
 <h2 id="reopen-a-recent-lookup">Reopen a recent lookup<a class="headerlink" href="#reopen-a-recent-lookup" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Tap the <strong>Home</strong> tab. Your last few lookups are listed there.</li>
@@ -1707,7 +1710,7 @@
 <h2 id="check-your-work">Check your work<a class="headerlink" href="#check-your-work" title="Permanent link">&para;</a></h2>
 <ul>
 <li>The product page shows a price and a colour-coded stock count.</li>
-<li>Tapping a tag chip shows a picture that matches what's on the shelf.</li>
+<li>Tapping a tag card shows a picture that matches what's on the shelf.</li>
 <li>Tapping a flash colour makes that tag's light blink on the shelf.</li>
 </ul>
 <h2 id="if-something-looks-wrong">If something looks wrong<a class="headerlink" href="#if-something-looks-wrong" title="Permanent link">&para;</a></h2>

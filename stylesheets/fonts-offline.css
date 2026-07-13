@@ -1,0 +1,46 @@
+/* Self-hosted brand fonts — Commander build only (mkdocs.commander.yml).
+ *
+ * The public site loads Bricolage Grotesque from fonts.googleapis.com via
+ * overrides/main.html. An appliance in a shop has no route to Google, so the
+ * heading font would silently fall back to Segoe UI and the help suite would
+ * look nothing like the product. These are the latin subsets pulled from the
+ * same Google Fonts release (v9) and vendored, so the offline build keeps the
+ * branding.
+ *
+ * Latin only, on purpose: the docs are English and every Guardian pulls this
+ * pack over a customer's uplink. Adding latin-ext/vietnamese would triple the
+ * font payload for glyphs no lesson uses.
+ *
+ * Material's own body/code fonts (Inter, IBM Plex Mono) are NOT loaded here —
+ * mkdocs.commander.yml sets `theme.font: false`, which drops Material's Google
+ * Fonts <link> entirely and falls back to the system UI stack. That is a
+ * deliberate trade: system text is indistinguishable to a layman, whereas the
+ * heading face is the brand.
+ */
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("../assets/fonts/bricolage-grotesque-600.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("../assets/fonts/bricolage-grotesque-700.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("../assets/fonts/bricolage-grotesque-800.woff2") format("woff2");
+}
