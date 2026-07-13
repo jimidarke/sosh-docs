@@ -464,13 +464,11 @@
 
 <h1 id="uat-strategy">UAT Strategy<a class="headerlink" href="#uat-strategy" title="Permanent link">&para;</a></h1>
 <h2 id="why-were-doing-this">Why we're doing this<a class="headerlink" href="#why-were-doing-this" title="Permanent link">&para;</a></h2>
-<p>Sosh is at v50. Multi-tenancy is hardened. The product is roughly 85%
-complete and a Spire-conference push is coming June 2026. Before more
-people see it, every functional promise needs a non-author set of eyes
-on it. The author has spent two years staring at this code and is
-biased toward "of course it works." Friends and family are not. They
-will click the wrong thing in the wrong order, and that is exactly
-what we need.</p>
+<p>Before more people see the product, every functional promise needs a
+non-author set of eyes on it. The author has spent a long time staring
+at this code and is biased toward "of course it works." Friends and
+family are not. They will click the wrong thing in the wrong order,
+and that is exactly what we need.</p>
 <h2 id="what-acceptance-means-here">What "acceptance" means here<a class="headerlink" href="#what-acceptance-means-here" title="Permanent link">&para;</a></h2>
 <p>Pass means: a normal person, given the documented steps, sees the
 documented result, and is not confused along the way. Fail means: they
@@ -481,14 +479,9 @@ codebase. Those check correctness of code. UAT checks correctness of
 <strong>experience</strong> — that the product, end-to-end, delivers what the
 brochure says it does.</p>
 <h2 id="out-of-scope">Out of scope<a class="headerlink" href="#out-of-scope" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Performance and load (separate workstream)</li>
-<li>Security and multi-tenant isolation (already exercised; adversarial
-  testing is its own engagement)</li>
-<li>Exotic edge cases ("what if I unplug the phone mid-scan?") — testers
-  won't think of them anyway, and we're not building life-support</li>
-<li>Error injection, fuzzing, browser-compat matrices</li>
-</ul>
+<p>This pack covers functional, everyday usage only — not performance,
+security, or adversarial testing. Those are separate workstreams
+handled elsewhere.</p>
 <p>If you find something weird while running a case, <strong>note it in the
 Comments column</strong> and keep going. Don't go hunting.</p>
 <h2 id="audience-tiers">Audience tiers<a class="headerlink" href="#audience-tiers" title="Permanent link">&para;</a></h2>
@@ -514,7 +507,7 @@ Comments column</strong> and keep going. Don't go hunting.</p>
 <tr>
 <td><code>[KIT]</code></td>
 <td>Tester + full Guardian kit</td>
-<td>Commander :8080 UI, TUI, POS sync, pick-by-light, beacon</td>
+<td>Guardian :8080 UI, TUI, POS sync, pick-by-light, beacon</td>
 </tr>
 </tbody>
 </table>
