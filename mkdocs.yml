@@ -64,9 +64,6 @@ markdown_extensions:
   - toc:
       permalink: true
 
-draft_docs: |
-  drafts/
-
 extra:
   social:
     - icon: fontawesome/solid/globe
@@ -74,6 +71,35 @@ extra:
 
 nav:
   - Home: index.md
+  - Getting Started:
+      - Overview: getting-started/index.md
+      - How Sovereign Shelf works: getting-started/a1-how-it-works.md
+      - Set up the hardware: getting-started/a2-set-up-the-hardware.md
+      - Sign in to your Guardian console: getting-started/a3-sign-in.md
+      - Connect your product data: getting-started/a4-connect-your-product-data.md
+      - Bind your first tag: getting-started/a5-bind-your-first-tag.md
+      - Set your first-day settings: getting-started/a6-first-day-settings.md
+      - Train your team: getting-started/a7-train-your-team.md
+  - Staff:
+      - Look up a product: staff/f2-look-up-a-product.md
+      - Update a shelf tag: staff/f3-update-a-shelf-tag.md
+  - Owners:
+      - Templates:
+          - Overview: owners/templates/index.md
+          - Understand templates: owners/templates/c01-templates-101.md
+          - Tour the Designer: owners/templates/c02-designer-tour.md
+          - Add text: owners/templates/c03-text-and-paragraphs.md
+          - Show live product data: owners/templates/c04-show-live-product-data.md
+          - Draw shapes and use the three colours: owners/templates/c05-shapes-lines-and-colours.md
+          - Add barcodes and QR codes: owners/templates/c07-barcodes-and-qr-codes.md
+          - Add icons and smart show/hide rules: owners/templates/c08-icons-and-conditional-rules.md
+          - Layout like a pro: owners/templates/c09-layout-like-a-pro.md
+          - Preview with real products: owners/templates/c10-preview-with-real-products.md
+          - "Put templates to work: purposes, sale pairs, and defaults": owners/templates/c12-sale-layouts-and-defaults.md
+  - Reference:
+      - FAQ: reference/faq.md
+      - Data fields: reference/data-fields.md
+      - Template purposes: reference/template-purposes.md
 
 # UAT pages are deliberately omitted from `nav:` — they're public but
 # unlisted. Reachable only via direct URL (docs.sovereignshelf.net/uat/),
