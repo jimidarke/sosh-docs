@@ -19,7 +19,7 @@ Retail store owners. Plain language. Click-here / click-there. Screenshots over 
 ### Author a page (draft)
 
 1. Create the file under `docs/drafts/<section>/<page>.md`. Files in `docs/drafts/` are excluded from production builds (configured in `mkdocs.yml` via `draft_docs`).
-2. Write the page. Add screenshots to `docs/assets/<page-slug>/`.
+2. Write the page. Add screenshots to `docs/assets/<surface>/`, where `<surface>` is the thing being shown — `app/` (the handheld), `console/` (the Guardian console), `designer/` (the Template Designer), or `hardware/` (photos of the kit). Reference them with a **relative** path (`../assets/app/foo.png`); `strict: true` then fails the build on a typo, whereas an absolute `/assets/...` path silently ships broken.
 3. Commit + push to `main`. **Drafts on main are safe** — they don't ship to the live site.
 
 ### Review locally

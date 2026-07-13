@@ -8,6 +8,12 @@
   {% endif %}
   {# Bricolage Grotesque is the brand heading font; Material's theme.font
      only self-hosts one text + one code font, so it's loaded separately
-     here and applied to headings only via extra.css. #}
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&display=swap">
+     here and applied to headings only via extra.css.
+
+     Gated on theme.font: the Commander build sets `font: false` because it
+     ships to appliances with no internet, where this request hangs and the
+     headings fall back to the extra.css stack anyway. #}
+  {% if config.theme.font %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&display=swap">
+  {% endif %}
 {% endblock %}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+{#-
+  Overrides mkdocs/templates/sitemap.xml to keep UAT pages out of the sitemap.
+
+  UAT is public-but-unlisted: off the nav, out of the search index, noindex'd in
+  main.html, and Disallow'd in robots.txt. The stock sitemap undercut all of
+  that by advertising every UAT URL to crawlers. Excluding them here closes the
+  last hole.
+-#}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for file in pages -%}
+    {% if not file.page.is_link and (file.page.abs_url or file.page.canonical_url) and not file.src_uri.startswith('uat/') %}
+    <url>
+         <loc>{% if file.page.canonical_url %}{{ file.page.canonical_url|e }}{% else %}{{ file.page.abs_url|e }}{% endif %}</loc>
+         {% if file.page.update_date %}<lastmod>{{file.page.update_date}}</lastmod>{% endif %}
+    </url>
+    {%- endif -%}
+{% endfor %}
+</urlset>

@@ -1,0 +1,109 @@
+# Commander build — the offline help pack served from the Guardian console.
+#
+# Same content as the public site (mkdocs.yml), built for an appliance that may
+# never touch the internet. Differences, all of them load-bearing:
+#
+#   - No external hosts. The public build pulls Roboto from fonts.googleapis.com
+#     (a mkdocs-material default) and tablesort from unpkg.com. Both 404 on a
+#     store LAN with no egress, so: system fonts, vendored tablesort.
+#   - No GitHub links. repo_url / edit_uri / content.action.edit render an "edit
+#     this page" pencil that goes nowhere from a shop floor.
+#   - No navigation.instant. Its XHR page-swapping is the surface most likely to
+#     break behind the cloud admin console proxy, which rewrites only href/src/
+#     action attributes and leaves JS-constructed URLs alone.
+#   - site_url unset so every generated link stays relative — the site is mounted
+#     under /help/ on :8080, not at a domain root.
+#   - UAT pages are nav-listed here. They are public-but-unlisted on the web
+#     (not_in_nav + noindex + robots.txt); on a Commander they are first-class,
+#     so the hook below also clears their search-exclusion front matter.
+#
+# GOTCHA: do not add mermaid diagrams to these docs. mkdocs-material lazy-loads
+# mermaid from unpkg.com on first use, which fails silently on an offline
+# appliance. (Material's other unpkg fallback, the ResizeObserver polyfill, is
+# dead code on any browser from the last five years.) Verify any new dependency
+# with: grep -rE 'src="https?://' site-commander --include='*.html'
+#
+# Build:  mkdocs build -f mkdocs.commander.yml   → site-commander/
+# Ship:   packaged + Ed25519-signed as a "help pack", pulled by Guardians over
+#         WireGuard. See sosh: docs/components/commander-help-docs.md
+INHERIT: mkdocs.yml
+
+site_dir: site-commander
+
+# Relative links only — mounted at /help/, not at a domain root.
+site_url: null
+
+# Dead ends without internet.
+repo_url: null
+edit_uri: null
+
+# UAT is listed in nav below, so nothing is hidden from it.
+not_in_nav: ''
+
+hooks:
+  - hooks/commander_build.py
+
+theme:
+  # false = system font stack, no Google Fonts request.
+  font: false
+  features:
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+    - toc.follow
+
+# Vendored, not CDN.
+extra_javascript:
+  - javascripts/tablesort.min.js
+  - javascripts/tablesort.js
+
+extra:
+  # The public site footer links out to sovereignshelf.net; offline that is a
+  # dead icon.
+  social: []
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Overview: getting-started/index.md
+      - How Sovereign Shelf works: getting-started/a1-how-it-works.md
+      - Set up the hardware: getting-started/a2-set-up-the-hardware.md
+      - Sign in to your Guardian console: getting-started/a3-sign-in.md
+      - Connect your product data: getting-started/a4-connect-your-product-data.md
+      - Bind your first tag: getting-started/a5-bind-your-first-tag.md
+      - Set your first-day settings: getting-started/a6-first-day-settings.md
+      - Train your team: getting-started/a7-train-your-team.md
+  - Staff:
+      - Look up a product: staff/f2-look-up-a-product.md
+      - Update a shelf tag: staff/f3-update-a-shelf-tag.md
+  - Owners:
+      - Templates:
+          - Overview: owners/templates/index.md
+          - Understand templates: owners/templates/c01-templates-101.md
+          - Tour the Designer: owners/templates/c02-designer-tour.md
+          - Add text: owners/templates/c03-text-and-paragraphs.md
+          - Show live product data: owners/templates/c04-show-live-product-data.md
+          - Draw shapes and use the three colours: owners/templates/c05-shapes-lines-and-colours.md
+          - Add barcodes and QR codes: owners/templates/c07-barcodes-and-qr-codes.md
+          - Add icons and smart show/hide rules: owners/templates/c08-icons-and-conditional-rules.md
+          - Layout like a pro: owners/templates/c09-layout-like-a-pro.md
+          - Preview with real products: owners/templates/c10-preview-with-real-products.md
+          - "Put templates to work: purposes, sale pairs, and defaults": owners/templates/c12-sale-layouts-and-defaults.md
+  - Reference:
+      - FAQ: reference/faq.md
+      - Data fields: reference/data-fields.md
+      - Template purposes: reference/template-purposes.md
+  - Testing:
+      - Overview: uat/index.md
+      - Strategy: uat/strategy.md
+      - Tester setup: uat/setup-tester.md
+      - Test script: uat/test-script.md
+      - Results template: uat/result-template.md
+      - Triage: uat/triage.md

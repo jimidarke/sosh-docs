@@ -13,39 +13,51 @@
 
 1. Tap the **Stock** tab at the bottom of the screen.
 2. Scan the product's barcode with the handheld's scanner. If it matches exactly one product, the app jumps straight to the product page — you're done searching.
-3. Prefer to type? Tap the search box and enter part of the product's name, SKU, or barcode. Results appear after a short pause. Tap the one you want.
+3. Prefer to type? Tap the search box and enter part of the product's name, SKU, or barcode. The search fires as soon as you have typed **three characters**. Tap the result you want.
+
+![The Stock tab search screen, with the search box and the Type instead button outlined](../assets/app/stock-search-type-instead.png)
 
 !!! tip "Keyboard not popping up?"
-    Tap **Type instead**. The app opens its own on-screen keyboard. This happens when the barcode scanner blocks the phone's normal keyboard — it's not broken.
+    Tap **Type instead**. The app opens its own on-screen keyboard. This happens when the barcode scanner blocks the phone's normal keyboard — it's not broken. Type your search, then tap **OK**.
 
-!!! screenshot "Screenshot: Stock tab search screen, with the search box and the Type instead button highlighted"
-    To capture: assets/app/stock-search-type-instead.png
+![The app's own on-screen keyboard, opened with Type instead](../assets/app/stock-type-instead-keyboard.png)
+
+Each result shows the product's name, SKU, and barcode, with a stock count on the right. The count is colour-coded, so you can judge availability before you even open the product: **green** means 5 or more, **amber** means 1 to 4, and **red** means none.
+
+![A search result row, with the colour-coded stock count outlined](../assets/app/stock-search-results.png)
 
 ## Read the product page
 
-The product page shows everything at a glance:
+The top of the product page is a grid of eight tiles:
 
-- **Price** — with a note under it showing how recently it updated.
-- **On hand** — how many are in stock, colour-coded: green means 5 or more, yellow means 1 to 4, red means none.
-- **Sale** — the sale price and its start and end dates. This only appears while a sale is on.
-- **Bin location** — where the product lives in the store.
+- **On hand** — how many are in stock, colour-coded with the same green / amber / red rule as the search results.
+- **Price** — the price the shelf tag will show. While a sale is on, this is the sale price, with the regular price and the time of the last update underneath.
+- **Sale** — the sale price and the dates it runs between. With no sale on, it reads "no active sale".
+- **Bin** — where the product lives in the store.
+- **Last counted** — when this product's stock was last counted.
+- **Status** — whether the product is still active in your catalogue.
+- **Supplier SKU** — your supplier's own code for the product.
+- **Template** — the tag layout this product uses by default.
 
-!!! screenshot "Screenshot: product page with the stat grid visible — On hand, Price, Sale, and Bin location highlighted"
-    To capture: assets/app/stock-product-detail-stat-grid.png
+![The product page stat grid, with On hand, Price, Sale, and Bin outlined](../assets/app/stock-product-detail-stat-grid.png)
+
+Underneath the grid, **Stock detail** gives the reorder point and min/max levels, and **Product info** gives the vendor, category, and description.
 
 ??? note "More details"
-    Tap the **More details** section near the bottom of the page to see extra barcodes and other product fields. You won't need it often.
+    Tap the **More details** section at the very bottom of the page to see extra barcodes and other product fields. You won't need it often.
 
 ## Find its shelf tags
 
-Below the product info, the **Shelf tags** row shows a chip for every tag this product is on.
+Scroll down to **Bound ESL tags**. There is a card for every tag this product is on — the heading tells you how many — and each card shows the tag's code, its type, and when it last synced.
 
-1. Tap a chip. A panel slides up with a picture of exactly what that tag is showing on the shelf right now.
-2. Tap a Flash colour — **Red**, **Green**, or **Blue**. The tag's light blinks on the shelf.
-3. Walk toward the blinking light to find the tag.
+![The Bound ESL tags strip on the product page](../assets/app/stock-bound-tags-strip.png)
 
-!!! screenshot "Screenshot: tag panel open, with the tag preview picture and the Red/Green/Blue flash buttons highlighted"
-    To capture: assets/app/stock-tag-sheet-flash-row.png
+1. Tap a card. Each one is labelled **Tap for preview & flash**. A panel slides up.
+2. At the top of the panel is a picture of exactly what that tag is showing on the shelf right now, followed by its battery, signal, and firmware.
+3. Under **Flash to find on shelf**, tap **Red**, **Green**, or **Blue**. The tag's light blinks on the shelf in that colour.
+4. Walk toward the blinking light to find the tag.
+
+![The tag panel, with the tag preview picture and the Red, Green, and Blue flash buttons outlined](../assets/app/stock-tag-sheet-flash-row.png)
 
 ## Reopen a recent lookup
 
@@ -59,7 +71,7 @@ Below the product info, the **Shelf tags** row shows a chip for every tag this p
 ## Check your work
 
 - The product page shows a price and a colour-coded stock count.
-- Tapping a tag chip shows a picture that matches what's on the shelf.
+- Tapping a tag card shows a picture that matches what's on the shelf.
 - Tapping a flash colour makes that tag's light blink on the shelf.
 
 ## If something looks wrong

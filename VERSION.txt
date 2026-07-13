@@ -1,6 +1,27 @@
-0.2.1
+0.2.2
 
 ## Changelog
+
+### 0.2.2 (2026-07-13)
+- Add the first real screenshots: 12 handheld captures in `docs/assets/app/`
+- Staff track: illustrate every step of "Look up a product" and "Update a shelf tag"
+- Correct both Staff pages against the shipping app — search needs 3 characters,
+  the stat grid has 8 tiles, the app says "Bound ESL tags", boxes clear with ✕ (not
+  CLR), and the button row is PUSH / Stage / Cancel / Edit
+- Document the app's own on-screen keyboard sheets (Enter tag code, Find product)
+- README: screenshots live in `docs/assets/<surface>/`, referenced by relative path
+- Add the offline Commander help-pack build (`mkdocs.commander.yml` → `site-commander/`):
+  no external hosts (system fonts, vendored tablesort), no GitHub links, no
+  `navigation.instant`, relative links only, and UAT nav-listed as first-class
+- Add `hooks/commander_build.py` to clear the UAT search exclusion for that build only,
+  so the exclusion stays in source and never leaks into the public search index
+- Add `overrides/sitemap.xml` to keep UAT URLs out of the sitemap — the last hole in
+  the public-but-unlisted story (nav, search, noindex, robots.txt)
+- Enforce the draft gate: `draft_docs: drafts/` in `mkdocs.yml`, which the README has
+  always claimed but was never actually configured
+- Gate the Bricolage Grotesque `<link>` in `overrides/main.html` on `theme.font`, so the
+  offline build stops requesting fonts.googleapis.com on all 32 pages (`overrides/` is
+  shared by both builds, so `font: false` alone did not suppress a hand-written link)
 
 ### 0.2.1 (2026-07-13)
 - Fix logo contrast: white backing plate behind the header and homepage marks so the navy logo doesn't blend into the navy header / dark-mode background

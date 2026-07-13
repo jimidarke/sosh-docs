@@ -119,6 +119,13 @@ nav:
 # UAT pages are deliberately omitted from `nav:` — they're public but
 # unlisted. Reachable only via direct URL (docs.sovereignshelf.net/uat/),
 # excluded from internal search (per-page front matter), tagged
-# `noindex` (overrides/main.html), and disallowed in robots.txt.
+# `noindex` (overrides/main.html), disallowed in robots.txt, and skipped by
+# overrides/sitemap.xml.
 not_in_nav: |
   uat/*
+
+# Drafts are served locally (with a DRAFT banner) but never published — the
+# move out of docs/drafts/ IS the approval gate. README.md has always claimed
+# this; without the key it was a lie and any draft on main shipped live.
+draft_docs: |
+  drafts/
