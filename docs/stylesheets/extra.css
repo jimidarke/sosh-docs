@@ -15,6 +15,16 @@
   --md-accent-fg-color--transparent: #b5651d1a;
   --md-accent-bg-color:              #ffffff;
   --md-accent-bg-color--light:       rgba(255, 255, 255, 0.7);
+  /* Links: copper instead of Material's default (navy, same as the
+     header), which read as body text on light backgrounds and nearly
+     vanished against the dark scheme's background. */
+  --md-typeset-a-color: #b5651d;
+}
+
+/* Dark mode needs a lighter copper — the light-mode value is too close
+   in luminance to the slate background to read clearly as a link. */
+[data-md-color-scheme="slate"][data-md-color-accent="custom"] {
+  --md-typeset-a-color: #d98f4e;
 }
 
 .md-typeset h1,
@@ -23,6 +33,23 @@
 .md-typeset h4,
 .md-header__topic {
   font-family: "Bricolage Grotesque", "Segoe UI", sans-serif;
+}
+
+/* Logo: the brand mark is Sovereign Navy, the same family of color as
+   the header bar and (in dark mode) the page background, so it needs a
+   white backing plate to stay visible instead of blending in. */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  background-color: #ffffff;
+  border-radius: 6px;
+  padding: 3px;
+}
+
+.brand-hero {
+  display: inline-block;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.2rem 1.6rem;
 }
 
 /* Custom admonition types for training content.

@@ -1,6 +1,10 @@
-0.2.0
+0.2.1
 
 ## Changelog
+
+### 0.2.1 (2026-07-13)
+- Fix logo contrast: white backing plate behind the header and homepage marks so the navy logo doesn't blend into the navy header / dark-mode background
+- Fix link color: copper accent instead of navy, which was nearly unreadable against the dark scheme
 
 ### 0.2.0 (2026-07-13)
 - Add Sovereign Shelf branding: header logo, favicon, brand colors (Navy/Copper), and brand fonts (Inter/Bricolage Grotesque/IBM Plex Mono)
