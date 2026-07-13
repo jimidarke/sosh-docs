@@ -10,18 +10,23 @@ theme:
   name: material
   custom_dir: overrides
   language: en
+  logo: assets/branding/logo-square.png
+  favicon: assets/branding/favicon.png
+  font:
+    text: Inter
+    code: IBM Plex Mono
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: black
-      accent: indigo
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: black
-      accent: indigo
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode

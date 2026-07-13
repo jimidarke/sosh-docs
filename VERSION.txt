@@ -1,6 +1,10 @@
-0.1.2
+0.2.0
 
 ## Changelog
+
+### 0.2.0 (2026-07-13)
+- Add Sovereign Shelf branding: header logo, favicon, brand colors (Navy/Copper), and brand fonts (Inter/Bricolage Grotesque/IBM Plex Mono)
+- Add wordmark hero image to homepage and a Beacon product photo to the hardware setup lesson
 
 ### 0.1.2 (2026-07-13)
 - Fix homepage icons not rendering (missing pymdownx.emoji config)

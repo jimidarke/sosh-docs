@@ -1,5 +1,7 @@
 # Sovereign Shelf Help
 
+![Sovereign Shelf](assets/branding/logo.png){ width="280" }
+
 Welcome. Sovereign Shelf is the tag system that keeps your shelf prices accurate, automatically. Pick the path that matches your job.
 
 <div class="grid cards" markdown>

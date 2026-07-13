@@ -1,3 +1,30 @@
+/* Brand palette + type, matching the live storefront theme
+   (opencart/theme/sovereignshelf/stylesheet/stylesheet.css) rather than
+   the older brand-kit spec doc, since the storefront is what's actually
+   shipping. */
+[data-md-color-primary="custom"] {
+  --md-primary-fg-color:        #0e3145; /* Sovereign Navy */
+  --md-primary-fg-color--light: #173e55; /* navy-soft */
+  --md-primary-fg-color--dark:  #0a2532; /* navy-dim */
+  --md-primary-bg-color:        #ffffff;
+  --md-primary-bg-color--light: rgba(255, 255, 255, 0.7);
+}
+
+[data-md-color-accent="custom"] {
+  --md-accent-fg-color:              #b5651d; /* Copper */
+  --md-accent-fg-color--transparent: #b5651d1a;
+  --md-accent-bg-color:              #ffffff;
+  --md-accent-bg-color--light:       rgba(255, 255, 255, 0.7);
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-header__topic {
+  font-family: "Bricolage Grotesque", "Segoe UI", sans-serif;
+}
+
 /* Custom admonition types for training content.
    `!!! video`  — placeholder for an instructional video (swapped for an
                   embed when the recording exists; grep-able marker).

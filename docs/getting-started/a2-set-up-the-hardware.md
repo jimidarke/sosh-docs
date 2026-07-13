@@ -18,6 +18,8 @@ Everything in the box arrives pre-set for your store. Setup is placing, plugging
 
 2. **Place each Beacon on the sales floor** so every shelf that will hold a tag is within roughly 10–15 metres (about 30–50 feet) of a Beacon. Avoid mounting a Beacon directly on a metal surface.
 
+    ![A Sovereign Shelf Beacon](../assets/hardware/beacon.jpg){ width="240" }
+
 3. **Run an Ethernet cable from your router to the Guardian's uplink port** — the port labelled **ETH0** on the quick-start card.
 
     !!! screenshot "Screenshot: Back of the Guardian showing the four network ports, with the ETH0 uplink port highlighted"

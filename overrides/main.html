@@ -6,4 +6,8 @@
   {% if page and page.url and page.url.startswith('uat/') %}
     <meta name="robots" content="noindex, nofollow">
   {% endif %}
+  {# Bricolage Grotesque is the brand heading font; Material's theme.font
+     only self-hosts one text + one code font, so it's loaded separately
+     here and applied to headings only via extra.css. #}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&display=swap">
 {% endblock %}
