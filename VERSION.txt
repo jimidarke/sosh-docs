@@ -1,6 +1,11 @@
-0.1.1
+0.1.2
 
 ## Changelog
+
+### 0.1.2 (2026-07-13)
+- Fix homepage icons not rendering (missing pymdownx.emoji config)
+- Add visual markdown extensions: mark, caret, tilde, smartsymbols
+- Add navigation.footer, navigation.indexes, content.tabs.link theme features
 
 ### 0.1.1 (2026-07-13)
 - Remove internal codenames, credentials, and roadmap leaks from docs
