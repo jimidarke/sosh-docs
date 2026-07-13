@@ -6,18 +6,9 @@ Source for the public help site at **https://docs.sovereignshelf.net**.
 
 Anything committed to `main` is one `mkdocs gh-deploy` away from being live on the public internet. Treat every file as if a competitor will read it tomorrow.
 
-### Privacy contract — never commit
+Keep out: internal service/system names, infrastructure or network details, auth/security internals (env vars, tokens, signing), internal codenames, pricing/partner/customer specifics, vendor part numbers, database schema, and staff or internal-tool references. Use product-facing names only.
 
-- Internal service names: `esl-api`, `esl-gateway`, `esl-orchestrator`, `esl-renderer`, `esl-db`, `esl-admin`, `esl-designer`
-- Infrastructure terms: WireGuard, `wg0`, `10.99.x`, OpenWrt, LXC, Caddy, supervisord
-- Auth/security details: OAuth flows, signing keys, `INTERNAL_SHARED_SECRET`, `GATEWAY_SECRET`, bearer-token shapes
-- Internal architecture: Commander, Vault, Sentinel as code-internal terms (use product-facing names only)
-- Pricing internals, VAR margins, partner names, customer names
-- Hardware part numbers / vendor IDs the customer doesn't need to know
-- Database schema, table names, column names
-- Staff names, internal Slack/Linear/etc references
-
-If unsure, **don't commit it**. Internal architecture lives in the private `sosh` repo's `docs/` folder, not here.
+If unsure, don't commit it. Internal architecture lives in the private `sosh` repo's `docs/` folder, not here.
 
 ### Voice & audience
 
@@ -34,6 +25,7 @@ Retail store owners. Plain language. Click-here / click-there. Screenshots over 
 ### Review locally
 
 ```bash
+python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 mkdocs serve
 ```
@@ -64,15 +56,6 @@ ls site/drafts/    # → No such file or directory ✓
 ```
 
 If `site/drafts/` exists after a build, the draft gate is broken — STOP and fix `mkdocs.yml` `draft_docs` config before publishing.
-
-## Local setup
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-mkdocs serve
-```
 
 ## Hosting
 

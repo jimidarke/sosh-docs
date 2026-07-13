@@ -38,10 +38,10 @@ Additionally:
 
 Additionally:
 
-- A Guardian Commander unit (small mini-PC with multiple ethernet ports).
+- A Guardian unit (small mini-PC with multiple ethernet ports).
 - A beacon (the small white box).
 - At least 3 ESL tags, already provisioned by the author.
-- An ethernet cable + power for the Commander.
+- An ethernet cable + power for the Guardian.
 - A spare HDMI display + USB keyboard for the TUI cases. (You can
   skip the TUI section if you don't have these — mark them `N-A`.)
 

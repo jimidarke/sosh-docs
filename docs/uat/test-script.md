@@ -56,13 +56,13 @@ tiers you don't have — mark them `N-A` in
 | [UAT-KIT-05](#uat-kit-05)   | KIT    | Pick-by-Light          | Operator creates pick session                |
 | [UAT-KIT-06](#uat-kit-06)   | KIT    | Pick-by-Light          | Picker scans session; tag lights             |
 | [UAT-KIT-07](#uat-kit-07)   | KIT    | Pick-by-Light          | Confirm pick; LED clears                     |
-| [UAT-KIT-08](#uat-kit-08)   | KIT    | Commander :8080        | Reach the dashboard                          |
-| [UAT-KIT-09](#uat-kit-09)   | KIT    | Commander :8080        | View fleet/assignments                       |
-| [UAT-KIT-10](#uat-kit-10)   | KIT    | Commander :8080        | Configure weather                            |
-| [UAT-KIT-11](#uat-kit-11)   | KIT    | Commander :8080        | Beacon shows online                          |
-| [UAT-KIT-12](#uat-kit-12)   | KIT    | Commander TUI          | TUI PIN login                                |
-| [UAT-KIT-13](#uat-kit-13)   | KIT    | Commander TUI          | Push from TUI screen 4                       |
-| [UAT-KIT-14](#uat-kit-14)   | KIT    | Commander TUI          | Mobile binding from TUI screen 8             |
+| [UAT-KIT-08](#uat-kit-08)   | KIT    | Guardian :8080        | Reach the dashboard                          |
+| [UAT-KIT-09](#uat-kit-09)   | KIT    | Guardian :8080        | View fleet/assignments                       |
+| [UAT-KIT-10](#uat-kit-10)   | KIT    | Guardian :8080        | Configure weather                            |
+| [UAT-KIT-11](#uat-kit-11)   | KIT    | Guardian :8080        | Beacon shows online                          |
+| [UAT-KIT-12](#uat-kit-12)   | KIT    | Guardian TUI          | TUI PIN login                                |
+| [UAT-KIT-13](#uat-kit-13)   | KIT    | Guardian TUI          | Push from TUI screen 4                       |
+| [UAT-KIT-14](#uat-kit-14)   | KIT    | Guardian TUI          | Mobile binding from TUI screen 8             |
 | [UAT-CLD-31](#uat-cld-31)   | CLOUD  | Reports                | Fleet summary report                         |
 | [UAT-CLD-32](#uat-cld-32)   | CLOUD  | Reports                | Activity log                                 |
 | [UAT-CLD-33](#uat-cld-33)   | CLOUD  | Reports                | CSV export                                   |
@@ -381,8 +381,8 @@ tiers you don't have — mark them `N-A` in
 | -------- | -------------------------------------------------------------------------------------------- |
 | Tier     | `[KIT]`                                                                                      |
 | Category | POS Sync                                                                                     |
-| Pre      | Commander reachable on the local network. Tester knows the Commander LAN IP.                 |
-| Steps    | 1. From a laptop on the same LAN, open `http://<commander-ip>:8080/admin/pos-config`<br>2. Log in if prompted |
+| Pre      | Guardian reachable on the local network. Tester knows the Guardian LAN IP.                 |
+| Steps    | 1. From a laptop on the same LAN, open `http://<guardian-ip>:8080/admin/pos-config`<br>2. Log in if prompted |
 | Expected | A POS configuration page loads. Fields for SQL host, port, database, username, password.     |
 
 ### UAT-KIT-02 — Test connection with bad creds { #uat-kit-02 }
@@ -471,8 +471,8 @@ tiers you don't have — mark them `N-A` in
 | -------- | ---------------------------------------------------------------------- |
 | Tier     | `[KIT]`                                                                |
 | Category | Pick-by-Light                                                          |
-| Pre      | Commander reachable; pick-by-light feature enabled.                    |
-| Steps    | 1. Open `http://<commander-ip>:8080/`<br>2. Find pick sessions section<br>3. Create a new session with 2-3 items |
+| Pre      | Guardian reachable; pick-by-light feature enabled.                    |
+| Steps    | 1. Open `http://<guardian-ip>:8080/`<br>2. Find pick sessions section<br>3. Create a new session with 2-3 items |
 | Expected | Session is created with a session ID or QR. Operator-side UI shows the session as ready. |
 
 ### UAT-KIT-06 — Picker scans the session and sees the lit tag { #uat-kit-06 }
@@ -500,9 +500,9 @@ tiers you don't have — mark them `N-A` in
 | Field    | Value                                                                                        |
 | -------- | -------------------------------------------------------------------------------------------- |
 | Tier     | `[KIT]`                                                                                      |
-| Category | Commander :8080                                                                              |
-| Pre      | Commander on the LAN.                                                                        |
-| Steps    | 1. Open `http://<commander-ip>:8080/`<br>2. Log in (`sovereign` / `shelf` unless rotated)   |
+| Category | Guardian :8080                                                                              |
+| Pre      | Guardian on the LAN.                                                                        |
+| Steps    | 1. Open `http://<guardian-ip>:8080/`<br>2. Log in with the credentials provided by the author |
 | Expected | Dashboard shows tag count, beacon count, service health.                                     |
 
 ### UAT-KIT-09 — View fleet/assignments { #uat-kit-09 }
@@ -510,7 +510,7 @@ tiers you don't have — mark them `N-A` in
 | Field    | Value                                                                  |
 | -------- | ---------------------------------------------------------------------- |
 | Tier     | `[KIT]`                                                                |
-| Category | Commander :8080                                                        |
+| Category | Guardian :8080                                                        |
 | Pre      | Logged into local admin.                                               |
 | Steps    | 1. Visit the Assignments page                                          |
 | Expected | A list of `(tag, template, SKU)` rows. You can edit one assignment.    |
@@ -520,7 +520,7 @@ tiers you don't have — mark them `N-A` in
 | Field    | Value                                                                                        |
 | -------- | -------------------------------------------------------------------------------------------- |
 | Tier     | `[KIT]`                                                                                      |
-| Category | Commander :8080                                                                              |
+| Category | Guardian :8080                                                                              |
 | Pre      | Logged in.                                                                                   |
 | Steps    | 1. Visit weather settings page<br>2. Set a city (e.g. `Calgary`)<br>3. Save<br>4. Click Refresh / Test |
 | Expected | Within ~30s the dashboard shows a successful weather pull. Tags configured for weather mode queue a push. |
@@ -530,8 +530,8 @@ tiers you don't have — mark them `N-A` in
 | Field    | Value                                                                                        |
 | -------- | -------------------------------------------------------------------------------------------- |
 | Tier     | `[KIT]`                                                                                      |
-| Category | Commander :8080                                                                              |
-| Pre      | Beacon plugged into a Commander LAN port and powered.                                        |
+| Category | Guardian :8080                                                                              |
+| Pre      | Beacon plugged into a Guardian LAN port and powered.                                        |
 | Steps    | 1. Visit the APs / Beacons page                                                              |
 | Expected | Beacon's MAC is listed and shows Online within ~60s of being plugged in. No manual configuration. |
 
@@ -540,8 +540,8 @@ tiers you don't have — mark them `N-A` in
 | Field    | Value                                                                  |
 | -------- | ---------------------------------------------------------------------- |
 | Tier     | `[KIT]`                                                                |
-| Category | Commander TUI                                                          |
-| Pre      | HDMI display + USB keyboard plugged into Commander.                    |
+| Category | Guardian TUI                                                          |
+| Pre      | HDMI display + USB keyboard plugged into Guardian.                    |
 | Steps    | 1. Look at the screen<br>2. Enter the PIN provided by the author      |
 | Expected | TUI dashboard loads. You can see at least the fleet count and the time. |
 
@@ -550,7 +550,7 @@ tiers you don't have — mark them `N-A` in
 | Field    | Value                                                                  |
 | -------- | ---------------------------------------------------------------------- |
 | Tier     | `[KIT]`                                                                |
-| Category | Commander TUI                                                          |
+| Category | Guardian TUI                                                          |
 | Pre      | TUI logged in.                                                         |
 | Steps    | 1. Navigate to screen 4 (Push)<br>2. Trigger "push changed"           |
 | Expected | A live progress bar shows current/total/failed. Completes within a few minutes. |
@@ -560,7 +560,7 @@ tiers you don't have — mark them `N-A` in
 | Field    | Value                                                                                        |
 | -------- | -------------------------------------------------------------------------------------------- |
 | Tier     | `[KIT]`                                                                                      |
-| Category | Commander TUI                                                                                |
+| Category | Guardian TUI                                                                                |
 | Pre      | TUI logged in.                                                                               |
 | Steps    | 1. Navigate to screen 8 (Mobile)<br>2. Generate a binding QR                                |
 | Expected | A QR code appears on the screen. Scanning it from a fresh phone produces the same outcome as UAT-MOB-02. |

@@ -11,8 +11,8 @@ turning their results into a punch list.
 ## Inbox
 
 Each tester sends back `results-<name>.md`. Drop them all in a
-working folder for the cycle (e.g. `/tmp/uat-2026-05/`). Leave them
-unmodified — they're the audit trail.
+working folder for the cycle. Leave them unmodified — they're the
+audit trail.
 
 ## First pass: classify each Fail
 
@@ -61,8 +61,7 @@ Pass rate: NN/52 average
 - short paragraph, sent within 1 week
 ```
 
-That summary lives in `docs/trackers/YYYY-MM-DD-uat-cycle.md`. Triage
-issues feed the normal sprint backlog.
+Triage issues feed the normal sprint backlog.
 
 ## What not to do
 

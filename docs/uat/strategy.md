@@ -7,13 +7,11 @@ search:
 
 ## Why we're doing this
 
-Sosh is at v50. Multi-tenancy is hardened. The product is roughly 85%
-complete and a Spire-conference push is coming June 2026. Before more
-people see it, every functional promise needs a non-author set of eyes
-on it. The author has spent two years staring at this code and is
-biased toward "of course it works." Friends and family are not. They
-will click the wrong thing in the wrong order, and that is exactly
-what we need.
+Before more people see the product, every functional promise needs a
+non-author set of eyes on it. The author has spent a long time staring
+at this code and is biased toward "of course it works." Friends and
+family are not. They will click the wrong thing in the wrong order,
+and that is exactly what we need.
 
 ## What "acceptance" means here
 
@@ -29,12 +27,9 @@ brochure says it does.
 
 ## Out of scope
 
-- Performance and load (separate workstream)
-- Security and multi-tenant isolation (already exercised; adversarial
-  testing is its own engagement)
-- Exotic edge cases ("what if I unplug the phone mid-scan?") — testers
-  won't think of them anyway, and we're not building life-support
-- Error injection, fuzzing, browser-compat matrices
+This pack covers functional, everyday usage only — not performance,
+security, or adversarial testing. Those are separate workstreams
+handled elsewhere.
 
 If you find something weird while running a case, **note it in the
 Comments column** and keep going. Don't go hunting.
@@ -45,7 +40,7 @@ Comments column** and keep going. Don't go hunting.
 | ---------- | ----------------------------------- | ----------------------------------------------------- |
 | `[CLOUD]`  | Anyone with a browser               | sovereignshelf.net admin, designer, storefront        |
 | `[MOBILE]` | Tester + Android phone + our APK    | Mobile picker / signage / staff roles, QR binding     |
-| `[KIT]`    | Tester + full Guardian kit          | Commander :8080 UI, TUI, POS sync, pick-by-light, beacon |
+| `[KIT]`    | Tester + full Guardian kit          | Guardian :8080 UI, TUI, POS sync, pick-by-light, beacon |
 
 A tester runs every case relevant to **their** tier and skips the rest
 (mark `N-A`). Cloud-only testers will run roughly 30 of ~50 cases;

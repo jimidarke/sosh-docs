@@ -26,7 +26,7 @@ confused them. They are not engineers. The docs assume nothing.
 
 - **`[CLOUD]`** — anyone with a browser. Most of the test pack.
 - **`[MOBILE]`** — has an Android phone, willing to install our APK.
-- **`[KIT]`** — has a physical Guardian kit (Commander, beacon, tags).
+- **`[KIT]`** — has a physical Guardian kit (Guardian unit, beacon, tags).
   A handful of testers, max.
 
 Each case is tagged. Skip the ones you can't run; mark them `N-A` and
