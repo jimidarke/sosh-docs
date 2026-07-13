@@ -64,6 +64,15 @@ extra_javascript:
   - javascripts/tablesort.min.js
   - javascripts/tablesort.js
 
+# theme.font:false above drops Material's Google Fonts <link> (and, via the
+# `config.theme.font` gate in overrides/main.html, the Bricolage one too). That
+# would leave headings on Segoe UI — so self-host the brand face instead of
+# losing it. Body/code stay on the system stack; a layman can't tell, but the
+# heading face is the brand.
+extra_css:
+  - stylesheets/extra.css
+  - stylesheets/fonts-offline.css
+
 extra:
   # The public site footer links out to sovereignshelf.net; offline that is a
   # dead icon.

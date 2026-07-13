@@ -1,6 +1,15 @@
-0.2.2
+0.2.3
 
 ## Changelog
+
+### 0.2.3 (2026-07-13)
+- Self-host Bricolage Grotesque (latin 600/700/800) in `docs/assets/fonts/` and load it
+  from `docs/stylesheets/fonts-offline.css` in the Commander build only
+- Fixes headings silently falling back to Segoe UI offline: `theme.font: false` drops
+  Material's Google Fonts link *and* gates out the hand-written Bricolage link in
+  `overrides/main.html`, so the brand face had to be vendored to survive
+- Body/code stay on the system stack — indistinguishable to a layman, and latin-only
+  subsets keep the pack small over a customer's uplink
 
 ### 0.2.2 (2026-07-13)
 - Add the first real screenshots: 12 handheld captures in `docs/assets/app/`
