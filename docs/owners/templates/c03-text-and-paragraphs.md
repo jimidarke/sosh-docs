@@ -25,8 +25,7 @@ The Designer gives you two kinds of text, and they behave very differently. **Te
     - The colour swatches — **Color** (the letters), **Bg** (the fill behind them), and **Border** — each offer only **White**, **Black**, **Red**, or **None**. That's not a limitation of the Designer; those are the only colours a tag can display.
 4. Resize the box by dragging the handles on its **left and right sides** — those are the only handles it has. The height is locked to the font size, so to make the text taller, raise the **Size** number instead.
 
-!!! screenshot "Screenshot: a selected single-line Text object with Properties > Text open on the right; highlight the left/right resize handles and the Content box"
-    To capture: assets/designer/text-properties-panel.png
+![A selected single-line Text object with Properties > Text open on the right, with the left/right resize handles and the Content box](../../assets/designer/text-properties-panel.png)
 
 Here's the rule to remember: **single-line text never wraps.** If the words grow wider than the box, the extra is simply cut off at the edge. And if you press Enter while typing, the line break turns into a space — one line means one line.
 
@@ -42,8 +41,7 @@ For anything longer than a line — a product name that might run long, a short 
 
 4. To stop a paragraph from growing forever, check **Limit Lines** and set **Max Lines** to the most lines you'll allow.
 
-!!! screenshot "Screenshot: a selected Paragraph with wrapped text on the canvas; highlight the Word Wrap and Limit Lines checkboxes and the greyed-out Height field"
-    To capture: assets/designer/paragraph-wrap-properties.png
+![A selected Paragraph with wrapped text on the canvas, with the Word Wrap and Limit Lines checkboxes and the greyed-out Height field](../../assets/designer/paragraph-wrap-properties.png)
 
 !!! warning "Limit Lines drops text silently"
     When a paragraph runs past its Max Lines, the extra lines are simply not drawn — there's no "..." to warn you. Leave a line of headroom for your longest product names, then check the tricky ones in preview ([Preview with real products](c10-preview-with-real-products.md)).

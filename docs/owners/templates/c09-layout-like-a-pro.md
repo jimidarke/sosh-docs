@@ -21,8 +21,7 @@ To arrange several objects at once, you first select them together:
 3. Click an align button to snap the selection into line: **Left**, **Center H**, or **Right** lines up sides and centres across the label; **Top**, **Center V**, or **Bottom** does the same up and down.
 4. Select **three or more** objects and the **Distribute Horizontal** and **Distribute Vertical** buttons come into play — they even out the gaps between the objects, so a row of icons or prices is spaced perfectly.
 
-!!! screenshot "Screenshot: three objects selected on the canvas with the Align section visible in the right panel; highlight the align and distribute buttons"
-    To capture: assets/designer/align-section.png
+![Three objects selected on the canvas with the Align section visible in the right panel, with the align and distribute buttons](../../assets/designer/align-section.png)
 
 Two more helpers work while you drag a *single* object:
 
@@ -39,8 +38,7 @@ Objects on a label stack like paper cut-outs on a table: whatever you added last
 4. Click any row to select that object — the easiest way to grab something tiny or buried.
 5. Name your objects in **Identity > Name** in the Properties panel. A list that reads "Price background, Product name, Sale badge" beats one that reads "Rectangle, Rectangle, Text".
 
-!!! screenshot "Screenshot: the Layers panel with several named object rows; highlight the visibility dot and the reorder buttons"
-    To capture: assets/designer/layers-panel.png
+![The Layers panel with several named object rows, with the visibility dot and the reorder buttons](../../assets/designer/layers-panel.png)
 
 You can also **right-click any object** on the canvas for a quick menu: **Copy**, **Paste**, **Duplicate**, **Delete**, **Bring to Front**, **Send to Back**, **Group/Ungroup**, and **Lock**.
 

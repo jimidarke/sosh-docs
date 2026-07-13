@@ -18,7 +18,7 @@ A template's purpose is its job: Normal price, On-sale, Pick-by-Light (idle and 
 3. To change one, click the pill, pick the right purpose from the dropdown, then click the **checkmark** to confirm.
 
 !!! screenshot "Screenshot: a template card with its purpose pill dropdown open, the checkmark button highlighted"
-    To capture: assets/designer/templates-purpose-pill.png
+    To capture: assets/console/templates-purpose-pill.png
 
 !!! warning "Fix the pill before anything else"
     Downloaded and imported templates often arrive with the wrong purpose. Check the pill first — only templates with the correct purpose (and marked active) appear in the Defaults dropdowns below. A "missing" template is almost always a mislabeled one.
@@ -39,7 +39,7 @@ Once a pair is linked, sales run themselves. While a product's sale window — t
 The rows below Price tags work the same way for other jobs: Pick-by-Light (Idle and Active), Will-call (Idle and Active), and Weather (Regular and Alert). Each feature's own lesson covers when to fill them in.
 
 !!! screenshot "Screenshot: the Defaults card with one size row's Normal and Onsale dropdowns both set, the Saved tick visible"
-    To capture: assets/designer/templates-defaults-pair.png
+    To capture: assets/console/templates-defaults-pair.png
 
 ??? note "When several templates share a purpose"
     If more than one active template has the same size and purpose, automatic picks use the **alphabetically first** one. To control which wins, rename the templates — the name lives in the Designer's Template Parameters panel ([Tour the Designer](c02-designer-tour.md)) — or have staff pick a template explicitly with the **Edit** button on the handheld.

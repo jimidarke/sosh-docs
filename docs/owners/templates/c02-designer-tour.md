@@ -31,16 +31,14 @@ Every template is drawn for one exact label size, so set the size before you dra
 
 <!-- REVIEW: the size dropdown also shows an ENVOY option — hide or gloss pending the product decision -->
 
-!!! screenshot "Screenshot: the top toolbar with the Tag size dropdown open, the three size options visible, dropdown highlighted"
-    To capture: assets/designer/tag-size-dropdown.png
+![The top toolbar with the Tag size dropdown open, the three size options visible, dropdown outlined](../../assets/designer/tag-size-dropdown.png)
 
 !!! warning "Choose the size before you draw"
     Changing the size later does not shrink or grow what you've already drawn — the label area simply resizes underneath your objects. Pick the size first and save yourself a redo.
 
 ## Get to know the workspace
 
-!!! screenshot "Screenshot: the full Designer window with a blank 3.5-inch canvas, each of the five areas labelled (top toolbar, left tool strip, left panel, canvas, right Properties panel)"
-    To capture: assets/designer/workspace-overview.png
+![The full Designer window with a blank 3.5-inch canvas, each of the five areas labelled (top toolbar, left tool strip, left panel, canvas, right Properties panel)](../../assets/designer/workspace-overview.png)
 
 The screen has five areas:
 
@@ -61,8 +59,7 @@ The Properties panel has one trick to learn now. When *nothing* is selected, it 
 2. Find the **Name** box in the **Template Parameters** panel on the right.
 3. Type a clear name — something you'll recognise on the Templates page later, like "Shelf price 3.5".
 
-!!! screenshot "Screenshot: the right panel showing Template Parameters with the Name box filled in and highlighted"
-    To capture: assets/designer/template-parameters-name.png
+![The right panel showing Template Parameters with the Name box filled in and outlined](../../assets/designer/template-parameters-name.png)
 
 ## Save your work
 
@@ -85,8 +82,7 @@ To make a copy under a new name, use **Save As** (Ctrl+Shift+S). It asks for the
 
 Be careful with the **Del** button in this list: it deletes a template permanently after a single confirmation. There is no undo.
 
-!!! screenshot "Screenshot: the Template Browser open over the canvas, with the size filter and search box highlighted"
-    To capture: assets/designer/template-browser.png
+![The Template Browser open over the canvas, with the size filter and search box outlined](../../assets/designer/template-browser.png)
 
 ## Check your work
 

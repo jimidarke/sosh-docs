@@ -20,8 +20,7 @@ Shapes are the quiet workhorses of a good label. A black bar behind a white pric
     - **Dash** — draw the outline solid, dashed, or dotted.
 4. Rectangles get one extra control: **Corner R** rounds the corners. A bigger number means rounder corners — handy for a soft price badge.
 
-!!! screenshot "Screenshot: a selected rectangle on the canvas with Properties > Shape open; highlight the Fill and Stroke swatches and the Corner R field"
-    To capture: assets/designer/shape-properties-panel.png
+![A selected rectangle on the canvas with Properties > Shape open, with the Fill and Stroke swatches and the Corner R field](../../assets/designer/shape-properties-panel.png)
 
 ## Draw a line
 
@@ -51,8 +50,7 @@ The sanity check is one click away:
 2. Everything on the canvas snaps to the three printable colours. What you see now is what the tag will print.
 3. Click the button again to go back to normal editing.
 
-!!! screenshot "Screenshot: the canvas with the colour preview turned on; highlight the WBR colour-preview button on the tool strip"
-    To capture: assets/designer/wbr-colour-preview.png
+![The canvas with the colour preview turned on, with the WBR colour-preview button on the tool strip](../../assets/designer/wbr-colour-preview.png)
 
 !!! tip "Red is your accent"
     With only three colours, red is precious. Save it for sale prices and things that must catch the eye, and keep body text black on white. A label that's mostly red shouts everything — and says nothing.

@@ -22,8 +22,7 @@ This lesson is the core skill of the whole module. Here is the idea in two sente
 5. Open the **Field** dropdown. Fields come in groups so they're easy to find: Product (names and descriptions), Pricing, Identifiers (SKU and barcode), Inventory, Details, Supplier, Price Levels, your point-of-sale system's (POS) custom fields, and more. The full catalogue is in the [data fields reference](../../reference/data-fields.md).
 6. Pick a field — for example, the product's name. That's it. Your sample text stays on the canvas as a stand-in, but at print time the product's real value appears in its place.
 
-!!! screenshot "Screenshot: Properties panel with the Data Binding section open and the Field dropdown expanded, showing the grouped field list; highlight the Field dropdown"
-    To capture: assets/designer/data-binding-field-dropdown.png
+![Properties panel with the Data Binding section open and the Field dropdown expanded, showing the grouped field list, with the Field dropdown](../../assets/designer/data-binding-field-dropdown.png)
 
 ## Dress up the value
 
@@ -36,8 +35,7 @@ The Data Binding section also has a few finishing touches. All of them wrap arou
 !!! tip
     Hover the small ⓘ next to these options to see a worked example before you commit.
 
-!!! screenshot "Screenshot: a selected price text object with Prefix set to $ and Superscript ¢ checked, plus the canvas showing the styled price; highlight the Prefix box and the Superscript ¢ checkbox"
-    To capture: assets/designer/price-prefix-superscript.png
+![A selected price text object with Prefix set to $ and Superscript ¢ checked, plus the canvas showing the styled price, with the Prefix box and the Superscript ¢ checkbox](../../assets/designer/price-prefix-superscript.png)
 
 ## When a product doesn't have the field
 

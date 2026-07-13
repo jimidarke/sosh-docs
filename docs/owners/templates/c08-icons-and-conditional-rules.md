@@ -20,8 +20,7 @@ This lesson covers two features that make a template feel smart. Icons give your
     - Colour — pick white, black, or red from the swatches. Those are the three colours a label can print.
     - **Change Icon** — reopens the picker so you can swap the picture without redoing its position or rules.
 
-!!! screenshot "Screenshot: the icon picker open, showing the search box and the category tabs across the top, with the Brands tabs visible; highlight the search box"
-    To capture: assets/designer/icon-picker.png
+![The icon picker open, showing the search box and the category tabs across the top, with the Brands tabs visible, with the search box](../../assets/designer/icon-picker.png)
 
 ??? note "Icons can be bound to data too"
     Like text, an icon can be bound to a data field in **Properties > Data Binding**. If the field carries an icon name, the icon swaps automatically at print time. Most price labels never need this — it exists for special layouts where the picture itself comes from the data.
@@ -49,8 +48,7 @@ A conditional rule is an IF/THEN sentence your label follows every time it print
 
 One more quick example: add a small red text object reading `LOW STOCK`, then give it a rule — IF **stock quantity** is **less than** `5` (or whatever number worries you) THEN **Show**. Shelves quietly flag themselves before you run out.
 
-!!! screenshot "Screenshot: Properties panel with Conditional Rules expanded on the selected burst icon, showing the rule IF sale price exists THEN Show; highlight the + Add Rule button and the rule row"
-    To capture: assets/designer/conditional-rule-sale-burst.png
+![Properties panel with Conditional Rules expanded on the selected burst icon, showing the rule IF sale price exists THEN Show, with the + Add Rule button and the rule row](../../assets/designer/conditional-rule-sale-burst.png)
 
 !!! tip
     Rules run at print time, not on the canvas — the Designer canvas always shows the object. To see both looks, use the [real-product preview](c10-preview-with-real-products.md) twice: once with a product that's on sale, once with one that isn't.

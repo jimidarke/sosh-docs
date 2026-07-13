@@ -1,6 +1,39 @@
-0.2.3
+0.3.0
 
 ## Changelog
+
+### 0.3.0 (2026-07-13)
+- Add `tools/shotwalker/`: a Playwright harness that walks the Commander console
+  (`:8080`) and the Template Designer (`:8090`), captures the screenshots the docs
+  ask for, and smoke-tests every page on the way through
+- The docs were already the shot list — every page carried a `!!! screenshot`
+  placeholder naming its exact target file. Shotwalker reads those as its work
+  list and answers each with a recipe keyed to the same filename, so the two can
+  be diffed: a placeholder with no recipe is a gap, a recipe with no placeholder
+  is stale. That diff is what keeps it honest as the UI drifts
+- Wire in 25 of the 29 browser-capturable shots; 4 stay placeholders on purpose
+  (see below). Console tables render client-side from `/api/*`, so a real browser
+  is the only thing that can see them — `curl` gets an empty shell
+- Reveal-only, enforced in code, not by discipline: a network guard aborts every
+  non-GET request outside a narrow allowlist, and a DOM guard swallows clicks on
+  mutating controls. Safe to point at any Commander, including a customer's
+- Secrets are masked at capture time (PIN, API keys, POS passwords), so they never
+  land in a PNG — these images are committed to a public repo
+- Smoke sweep: 23/23 pages healthy. Two findings worth knowing — the console draws
+  a broken `<img>` for tags with no pushed image (`/tag-image/<addr>` 404s; real
+  device state, 14 on `/fleet`), and `/admin/mobile-binding` mints its pairing QR
+  with a POST *on page load*
+- Held back, deliberately: `templates-defaults-card`, `templates-defaults-pair`,
+  and `templates-purpose-pill` — the Templates-page dropdowns render black-on-black
+  in `sosh`, and the dropdown is the subject of all three. A known-bad image in
+  permanent docs is worse than a placeholder that admits the gap.
+  `templates-defaults-pair` has a second blocker: it asks for the "Saved tick",
+  which only appears after a write, so it is not capturable reveal-only as specced
+- `templates-library-card` also stays open: the bench Commander's Template Library
+  is empty, so the card reads "No library templates available" while the lesson
+  describes a Download button. Seed the library, then `--only` it
+- Re-file three Templates-page shots from `assets/designer/` to `assets/console/` —
+  they are console screenshots; `c12` says so in its own text
 
 ### 0.2.3 (2026-07-13)
 - Self-host Bricolage Grotesque (latin 600/700/800) in `docs/assets/fonts/` and load it

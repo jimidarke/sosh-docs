@@ -19,8 +19,7 @@ This lesson gets your first sync running. Each POS also gets its own detailed wa
     - **Odoo** — Odoo.
     - **Local API** — custom integrations built by your own developer or IT team.
 
-    !!! screenshot "Screenshot: POS Configuration page with all four tabs visible, tab row highlighted"
-        To capture: assets/console/pos-config-tabs.png
+    ![POS Configuration page with all four tabs visible, tab row outlined](../assets/console/pos-config-tabs.png)
 
 3. Find your POS server. Click **Detect on LAN** where the tab offers it — it scans your store network and lists what it finds, and clicking a result fills in the address for you. Otherwise, type the server address yourself.
 4. Enter the read-only username and password (or API key) from your POS provider.
@@ -29,8 +28,7 @@ This lesson gets your first sync running. Each POS also gets its own detailed wa
 7. Click **Run sync now**. (If you skip this, the first sync starts on its own within about 5 minutes.)
 8. Click **Products** in the left menu and watch your catalog fill in.
 
-    !!! screenshot "Screenshot: Products page filled with a synced catalog, search box highlighted"
-        To capture: assets/console/products-page-synced.png
+    ![Products page filled with a synced catalog, search box outlined](../assets/console/products-page-synced.png)
 
 !!! warning "One source at a time"
     Exactly one POS source can be active. Saving a different tab replaces your current connection. Don't fill in a second tab "just to try it" unless you mean to switch.

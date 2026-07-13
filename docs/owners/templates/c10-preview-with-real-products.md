@@ -16,8 +16,7 @@ Sample text on the canvas only gets you so far. Real products have longer names,
 2. In its search box, type at least 2 characters of a SKU or a product name. Matches appear as you type.
 3. Click a result. Its SKU, name, and price appear in the panel, and the **Preview** button lights up.
 
-!!! screenshot "Screenshot: the left Product panel with search results showing and a product selected; highlight the enabled Preview button"
-    To capture: assets/designer/product-panel-preview-enabled.png
+![The left Product panel with search results showing and a product selected, with the enabled Preview button](../../assets/designer/product-panel-preview-enabled.png)
 
 ## Open the preview
 
@@ -25,8 +24,7 @@ Sample text on the canvas only gets you so far. Real products have longer names,
 2. A popup opens with a picture of your label. This is not a rough sketch — it is the exact image the tag would receive, produced by the same print engine that handles a real update. If it looks right here, it will look right on the shelf.
 3. Close the popup, adjust your design, and preview again as often as you like. Previewing never touches a tag.
 
-!!! screenshot "Screenshot: the preview popup showing the rendered label with a real product's name and price; highlight the rendered image"
-    To capture: assets/designer/render-preview-popup.png
+![The preview popup showing the rendered label with a real product's name and price, with the rendered image](../../assets/designer/render-preview-popup.png)
 
 ## Test the tricky cases
 

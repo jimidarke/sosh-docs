@@ -24,8 +24,7 @@ Repeat for each phone. That's the short version — the upcoming Setting up staf
 !!! tip "Scan the screen, not a printout"
     Pairing codes expire every 10 minutes, and the page quietly swaps in a new one before that happens. A printed or photographed code stops working fast — always scan the code live on your screen.
 
-!!! screenshot "Screenshot: Mobile Devices page, with the Provision a device (offline) QR card highlighted"
-    To capture: assets/console/mobile-devices-pairing-qr.png
+![Mobile Devices page, with the Provision a device (offline) QR card outlined](../assets/console/mobile-devices-pairing-qr.png)
 
 ## 2. Add your staff's names
 

@@ -47,6 +47,69 @@ git revert <bad-commit>
 mkdocs gh-deploy
 ```
 
+## Screenshots
+
+Screenshots of the Commander console and the Template Designer are **generated**,
+not taken by hand. `tools/shotwalker/` drives both in a headless browser, captures
+the images, and smoke-tests every page on the way through. Run it after a big
+Commander change:
+
+```bash
+cp tools/shotwalker/shotwalker.env.example tools/shotwalker/shotwalker.env
+$EDITOR tools/shotwalker/shotwalker.env     # target + sign-in; gitignored
+
+pip install -r tools/shotwalker/requirements.txt && playwright install chromium
+export PYTHONPATH=tools/shotwalker
+
+python -m shotwalker --check   # what's missing. No browser, no device needed.
+python -m shotwalker --all     # walk both surfaces, write into docs/assets/
+python -m shotwalker --wire    # turn fulfilled placeholders into ![](...) refs
+```
+
+Full detail in [`tools/shotwalker/README.md`](tools/shotwalker/README.md).
+
+### Asking for a screenshot
+
+**The docs are the shot list.** When a page needs an image that doesn't exist yet,
+leave a placeholder naming the exact file and describing the shot — including what
+to outline:
+
+```markdown
+!!! screenshot "Screenshot: the Dashboard right after first sign-in, full page,
+    with the Cloud pill and the Access Points tile highlighted"
+    To capture: assets/console/dashboard-first-signin.png
+```
+
+Shotwalker reads every placeholder as its work list, and each is answered by a
+*recipe* keyed to the same filename. Because both sides use the same key, they get
+diffed on every run: a placeholder with no recipe is a **gap**, a recipe no page
+asks for any more is **stale**. `--check` prints both. That diff is what stops the
+images and the docs from quietly drifting apart.
+
+So: write the placeholder first. Someone (or you) adds the recipe in
+`walk_console.py` / `walk_designer.py`, and `--wire` swaps the placeholder for the
+picture. Callout outlines are drawn at capture time from the art direction, which
+is why the placeholder should say what to highlight.
+
+A placeholder that survives a run is *telling the truth* about a missing image.
+That's the point — some shots are deliberately withheld (a UI bug would bake a
+known-bad picture into permanent docs; a card is empty on the test appliance).
+`known_issues.py` records why, and the run report lists them.
+
+### Screenshots and the privacy gate
+
+The masking in `tools/shotwalker/shotwalker/redact.py` is part of the ⚠️ **PUBLIC
+repo** rule at the top of this file, not a nicety. A screenshot is a verbatim copy
+of a screen, and the console screens show things this repo must not carry:
+credentials (PINs, API keys, POS passwords) and infrastructure (the appliance's LAN
+address and internal API path, customer database hostnames). Those regions are
+blacked out *before the image is encoded*, so they never touch disk.
+
+This has already bitten once: the first POS screenshot shipped the appliance's LAN
+IP into a public doc image. **Before adding a shot of a page that shows anything an
+outsider shouldn't have, add its selector to `redact.py`** — and look at the PNG
+afterwards. The same rule applies to a screenshot you take by hand.
+
 ## Verifying the privacy gate
 
 ```bash

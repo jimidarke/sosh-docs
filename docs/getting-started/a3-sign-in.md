@@ -34,8 +34,7 @@
 
 The Dashboard is your store's live health check. It refreshes itself every 10 seconds — you never need to reload the page.
 
-!!! screenshot "Screenshot: the Dashboard right after first sign-in, full page, with the Cloud pill and the Access Points tile highlighted"
-    To capture: assets/console/dashboard-first-signin.png
+![The Dashboard right after first sign-in, full page, with the Cloud pill and the Access Points tile outlined](../assets/console/dashboard-first-signin.png)
 
 Six tiles are worth knowing on day one:
 

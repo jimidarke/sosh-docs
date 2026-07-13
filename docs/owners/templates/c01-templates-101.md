@@ -47,7 +47,7 @@ The fastest way to get started is the Sovereign Shelf template library.
 A downloaded template becomes **your copy**. If Sovereign Shelf later improves the original, its row shows **Update available** — but nothing changes until you act. Library updates never overwrite your edits; you choose whether to take the new version.
 
 !!! screenshot "Screenshot: Templates page showing the Template Library card, with one row's Download button and badge highlighted"
-    To capture: assets/designer/templates-library-card.png
+    To capture: assets/console/templates-library-card.png
 
 ## Import a template file someone shared
 

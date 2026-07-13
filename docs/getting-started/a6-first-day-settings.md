@@ -36,8 +36,7 @@ One 6-digit PIN unlocks every store handheld. Your Guardian ships with a factory
 !!! warning "Don't skip this one"
     The factory PIN is not unique to your store. Change it before the handhelds go into daily use — the console keeps warning you until you do.
 
-!!! screenshot "Screenshot: System page Picker PIN card, with the default-PIN warning and the Set PIN button highlighted"
-    To capture: assets/console/system-picker-pin-card.png
+![System page Picker PIN card, with the default-PIN warning and the Set PIN button outlined](../assets/console/system-picker-pin-card.png)
 
 ## Set your timezone
 

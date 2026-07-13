@@ -5,3 +5,11 @@ venv/
 __pycache__/
 *.pyc
 .DS_Store
+
+# Shotwalker run output: full-page baselines, traces, reports. The corpus for
+# testing and training, regenerated on every run. The doc images it publishes
+# live in docs/assets/ and ARE committed.
+artifacts/
+
+# Shotwalker target + credentials. Never committed — this repo is public.
+tools/shotwalker/shotwalker.env

@@ -18,8 +18,7 @@ Barcodes and QR codes turn a shelf label into something a scanner can read. A ba
 4. In **Properties > Barcode**, the **Static Data** box holds a fixed fallback value. If a product doesn't have a barcode on file, the label prints this value instead of an empty gap. You can also use Static Data alone for a barcode that never changes, like a store coupon code.
 5. Watch the barcode on the canvas — it redraws live as the data changes, so what you see is what will print.
 
-!!! screenshot "Screenshot: a selected barcode on the canvas with Properties > Barcode open; highlight the Static Data box and the Position > Height field"
-    To capture: assets/designer/barcode-properties.png
+![A selected barcode on the canvas with Properties > Barcode open, with the Static Data box and the Position > Height field](../../assets/designer/barcode-properties.png)
 
 ## Add a QR code
 
@@ -28,8 +27,7 @@ Barcodes and QR codes turn a shelf label into something a scanner can read. A ba
 3. **Error Level** (L, M, Q, or H) trades size for toughness. A QR code carries built-in spare data so it still scans when part of it is dirty or blocked. **L** makes the smallest, simplest code; **H** survives about 30% of the code being damaged, but packs the squares in tighter. On a clean indoor shelf, the default **L** is fine.
 4. Like the barcode, **Static Data** holds a fixed fallback used when the product lacks the bound field.
 
-!!! screenshot "Screenshot: a selected QR code with Properties > QR Code open; highlight the Error Level dropdown and the Target Size field"
-    To capture: assets/designer/qr-properties.png
+![A selected QR code with Properties > QR Code open, with the Error Level dropdown and the Target Size field](../../assets/designer/qr-properties.png)
 
 !!! tip
     Bigger is easier to scan. If shoppers will scan the QR code from arm's length, give it room — a generous Target Size beats a high Error Level.

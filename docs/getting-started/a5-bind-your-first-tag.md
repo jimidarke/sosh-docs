@@ -23,8 +23,7 @@ A template is the layout a tag displays — where the name, price, and barcode g
 2. Type the tag code (the 8-character code printed on the tag) into the search box. Or click a size chip — TAG21, TAG35, or TAG58 (2.1-inch, 3.5-inch, and 5.8-inch labels) — to narrow the list.
 3. Click the tag's card to open its detail page.
 
-!!! screenshot "Screenshot: Tags page, with the search box and the three size chips highlighted"
-    To capture: assets/console/tags-search-and-size-chips.png
+![Tags page, with the search box and the three size chips outlined](../assets/console/tags-search-and-size-chips.png)
 
 ## Bind and push
 
@@ -41,8 +40,7 @@ A template is the layout a tag displays — where the name, price, and barcode g
 !!! tip "Push vs. Stage"
     **Push** sends the update now. **Stage** saves it and delivers it with the next scheduled update — handy when you'd rather not have screens flashing in front of customers.
 
-!!! screenshot "Screenshot: tag detail page's Bind Tag card, with the Preview and Push buttons highlighted"
-    To capture: assets/console/tag-detail-bind-card.png
+![Tag detail page's Bind Tag card, with the Preview and Push buttons outlined](../assets/console/tag-detail-bind-card.png)
 
 ## Find a tag on the shelf
 
