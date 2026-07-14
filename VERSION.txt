@@ -1,6 +1,19 @@
-0.6.0
+0.7.0
 
 ## Changelog
+
+### 0.7.0 (2026-07-14)
+- Add CI (`.github/workflows/docs.yml`). The public site was published only by a hand-run
+  `mkdocs gh-deploy`, so `gh-pages` trailed whatever commit the last manual deploy
+  happened to run from, and `strict: true` failures surfaced at deploy time rather than
+  when the offending commit landed
+- Build `--strict` on every push to `main` and every PR; publish only on a `v*.*.0` release
+  tag (major.minor.release, release component zero). Patch tags build but do not deploy
+- The deploy job declares `needs: build`, so the strict build is the gate a release must
+  clear, not just an advisory check on `main`
+- Deploys via `mkdocs gh-deploy`, not `actions/deploy-pages`: Pages is on its legacy branch
+  source and the `docs.sovereignshelf.net` certificate is still provisioning, so flipping
+  the source risks resetting that request. `docs/CNAME` rides through the build
 
 ### 0.6.0 (2026-07-13)
 - Fill the shot list: 21 of the 33 open `!!! screenshot` placeholders are now real
