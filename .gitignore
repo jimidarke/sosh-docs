@@ -13,3 +13,4 @@ artifacts/
 
 # Shotwalker target + credentials. Never committed — this repo is public.
 tools/shotwalker/shotwalker.env
+dist/
