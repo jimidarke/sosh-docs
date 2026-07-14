@@ -1,0 +1,64 @@
+name: Docs
+
+# Build on every change; publish only on a release tag.
+#
+# `v*.*.0` is the release shape: major.minor.release with the release component at
+# zero (v0.6.0, v1.0.0). Patch tags such as v0.6.1 build but never deploy.
+on:
+  push:
+    branches: [main]
+    tags: ['v*.*.0']
+  pull_request:
+
+# Two tags pushed back to back must not race each other onto gh-pages.
+concurrency:
+  group: docs-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      # mkdocs.yml sets strict: true — a broken link or bad nav entry fails here,
+      # when it is introduced, rather than at deploy time.
+      - run: mkdocs build --strict
+
+  deploy:
+    # The strict build is the gate the release must clear, not just an advisory
+    # check on main.
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # gh-deploy commits onto the gh-pages branch and needs its history.
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Configure git identity
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+      # Pushes a commit to gh-pages, exactly as a local `mkdocs gh-deploy` does.
+      # Pages stays on its branch source, so the custom-domain cert is untouched.
+      # docs/CNAME lives inside docs_dir, so the build copies it into site/.
+      - run: mkdocs gh-deploy --force
