@@ -62,7 +62,7 @@ The app protects you from common slips:
 !!! tip "PUSH now, Stage for later"
     **Stage** saves the change without sending it — the tag keeps showing the OLD price until your store's next update run. Use **PUSH** unless your manager says otherwise. **Cancel** clears both boxes and starts over.
 
-One more button you may see: large tags can show several products at once — that's the **Multi-product** button, which gets its own lesson (coming soon).
+One more button you may see: large tags can show several products at once — that's the **Multi-product** button, which gets [its own lesson](f4-multi-product-tags.md).
 
 ??? note "Choosing a different look (Edit)"
     Tap **Edit** before you push to change how the tag will look:
@@ -87,4 +87,4 @@ One more button you may see: large tags can show several products at once — th
 
 **You tapped PUSH but nothing seems to happen** — look for the **Replace existing binding?** question on screen. The app waits for your answer before changing anything.
 
-**Next:** More staff lessons are coming (picking orders, will-call pickup signs, achievements). Until then, review [Look up a product](f2-look-up-a-product.md) or browse the [FAQ](../reference/faq.md).
+**Next:** [Multi-product tags](f4-multi-product-tags.md)

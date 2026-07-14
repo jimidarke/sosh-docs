@@ -57,11 +57,30 @@ FORBIDDEN_SELECTORS = [
     "#odoo-run-btn",
     "#key-mint-btn",
     "#localapi-activate-btn",
+    # Console -- POS: "Test connection" is not a write *here*, but it opens an
+    # outbound connection to a customer's POS database with whatever credentials
+    # are in the form. On someone else's Commander that is a real side effect --
+    # an auth attempt, possibly a lockout -- so it stays forbidden, and the four
+    # `*-test-ok` shots the docs ask for are hand-shot rather than walked.
+    "#sql-test-btn",
+    "#spire-test-btn",
+    "#odoo-test-btn",
     # Console -- templates
     "[data-tpl-delete]",
     "[data-tpl-duplicate]",
     "[data-lib-download]",
     "#upload-template-btn",
+    ".purpose-save",  # commits a template's purpose change
+    # Console -- images, sales orders
+    "#upload-image-btn",
+    "#sync-now-btn",
+    # Console -- will-call. These are plain <form> submits with no ids of their own,
+    # so they are reached through the action they post to: releasing an assignment
+    # blanks a customer's live pickup sign, and deleting a bin unbinds a real tag.
+    'form[action^="/admin/willcall/release/"] button',
+    'form[action^="/admin/willcall/bin/delete/"] button',
+    'form[action="/admin/willcall/assign"] button',
+    'form[action="/admin/willcall/bin/create"] button',
     # Designer -- anything that persists or pushes
     "#btn-save",
     "#btn-render",

@@ -86,7 +86,7 @@ Lesson coming soon — Pick by Light gets its own staff lesson.
 
 ### How do I set up will-call pickup signs?
 
-Lesson coming soon — will-call pickup signage gets its own lessons for owners and staff.
+Owners set up the pickup bins in [Set up will-call pickup signs](../owners/operations/e6-will-call-signage.md); staff run the day-to-day cycle in [Will-call pickup signs](../staff/f6-will-call-pickup-signs.md).
 
 ## Getting help
 

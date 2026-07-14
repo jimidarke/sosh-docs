@@ -29,8 +29,16 @@ same name, they can be diffed on every run:
 - **gap** — the docs want a shot nobody wrote a recipe for
 - **stale** — a recipe no doc asks for any more; delete it
 - **held** — captured, but deliberately not published (see *Known issues*)
+- **blocked** — no recipe is *possible*, and the reason is recorded
 
 That diff is what keeps this honest as the docs and the UI drift apart.
+
+Blocked is separate from gap on purpose. A gap is a to-do; a blocked shot is one that
+cannot be taken at all — its subject is a masked secret, or reaching it needs a write.
+Rolling them together would put permanent entries on a list that is supposed to shrink
+to zero, and a to-do list that can never reach zero stops being read. It would also
+quietly invite the fix of last resort, which is to widen the guard until the shot
+works. The guard does not move for a screenshot.
 
 ## Use
 
@@ -61,22 +69,38 @@ python -m shotwalker --wire           # turn fulfilled placeholders into ![](...
 Exits non-zero if a page is unhealthy or a shot fails, so it drops into CI
 unchanged the day there is one.
 
-## Two surfaces
+## Three surfaces
 
 The Commander console and the Template Designer are **separate applications** on
 separate ports. The Designer is what the `owners/templates/` lessons document —
-easy to miss, and it is the larger half of the shot list (21 shots to the
-console's 8). Only the console requires a sign-in.
+easy to miss, and it is the larger half of the browser shot list. Only the console
+requires a sign-in.
 
 The console renders its tables client-side, fetching them after page load, so
 `curl` sees an empty shell. A real browser isn't a convenience here; it's the
 only thing that works.
 
-## It cannot change the device
+The third surface is the **staff handheld**, driven over adb (`adb.py`, `walk_app.py`).
+No browser can see an Android app, which is why the `assets/app/*` shots sat as
+placeholders while both web surfaces were fully automated. Nodes are located by text
+out of `uiautomator dump` — never by coordinate, which works right up until someone
+moves a button and the walker starts silently photographing the wrong thing. Callouts
+are drawn onto the bitmap, since there is no DOM to hang an outline on.
 
-Shotwalker is **reveal-only**: it will open a modal, switch a tab, expand a
-panel, draw an object on an unsaved canvas. It will not save, delete, push to a
-tag, or restore a backup. Two independent guards enforce that, in `guard.py`:
+Two things about the handheld that will cost you an hour otherwise: `adb shell input
+text` does nothing (the app draws its own Compose keypad, so the keys must be tapped),
+and every "scan the tag" step in the docs has a type-it-in path behind the same field
+— which is why these shots can be taken on a bench with no scanner attached.
+
+```bash
+python -m shotwalker --surface app     # needs the phone on USB, adb authorised
+```
+
+## It cannot change the Commander
+
+The two **browser** surfaces are **reveal-only**: they will open a modal, switch a tab,
+expand a panel, draw an object on an unsaved canvas. They will not save, delete, push
+to a tag, or restore a backup. Two independent guards enforce that, in `guard.py`:
 
 - **Network** — every non-GET request is aborted unless it's on a short
   allowlist of endpoints that compute something and write nothing (the preview
@@ -87,6 +111,23 @@ tag, or restore a backup. Two independent guards enforce that, in `guard.py`:
   a form.
 
 It's safe to point at any Commander, including a customer's.
+
+### The handheld is the exception, and it is not a small one
+
+**`--surface app` writes.** It cannot not: the lessons it illustrates *are* writes —
+saving a multi-product grid onto a shelf tag, putting a customer's name on a pickup
+sign, releasing it again. `guard.py` guards the browser; it does nothing over adb.
+
+So the reveal-only guarantee covers the console and the Designer, and stops there. The
+app walk is a **bench tool**, and pointing it at a store's handheld would rebind real
+tags. The recipes are careful where they can be — `multi-product-convert-confirm` opens
+the "Replace existing binding?" dialog and then *cancels* it, because confirming is the
+exact accident the lesson warns readers about, and `willcall-assign-order` releases what
+it assigned so a run leaves the bench as it found it — but careful is not the same as
+guarded, and the difference is the whole point of the paragraph above.
+
+Its screenshots need their own privacy pass, too: `redact.app_masks` blanks the store
+UUID the app prints, matched on the node's text rather than a selector.
 
 ## It cannot leak into the docs
 

@@ -1,6 +1,91 @@
-0.3.0
+0.6.0
 
 ## Changelog
+
+### 0.6.0 (2026-07-13)
+- Fill the shot list: 21 of the 33 open `!!! screenshot` placeholders are now real
+  images, wired into their pages. Gaps (a placeholder the walker has no recipe for)
+  went 21 → 0 on the browser surfaces
+- Add a third shotwalker surface: the staff handheld, over adb (`adb.py`,
+  `walk_app.py`). Playwright cannot see an Android app, which is why the eight
+  `assets/app/*` shots sat unautomated while both web surfaces were covered. Nodes are
+  found by text via `uiautomator dump`, never by coordinate; callouts are drawn onto
+  the bitmap since there is no DOM to outline. Six of the eight are captured
+- **The app surface is not reveal-only, and cannot be** — its lessons *are* writes
+  (saving a multi-product grid, assigning a will-call order). `guard.py` protects the
+  browser surfaces and does nothing here, so this half is a bench tool and must never
+  be pointed at a store's phone. `willcall-assign-order` releases what it assigns, so
+  a run leaves the bench as it found it
+- Phone screens get their own redaction pass (`redact.app_masks`): the app prints a
+  store UUID, and this repo is public
+- New report bucket, **blocked** — a shot no recipe can ever take, with the reason.
+  Distinct from a gap on purpose: a gap is a to-do, and a to-do list that can never
+  reach zero stops being read. Nine shots are blocked, and none of them is blocked for
+  want of effort: four POS `*-test-ok` shots need a Test POST the network guard aborts;
+  `pos-localapi-keys` and `pos-odoo-form` are art-directed *at* fields that
+  `redact.py` blacks out (an API key; the appliance's Base URL), so they would publish
+  a highlighted black rectangle; `image-library-crop` needs a Designer feature that is
+  broken; the two wizard shots need an unpaired handheld
+- The guard only ever tightened: `#sql/spire/odoo-test-btn` (a Test opens an outbound
+  connection to a customer's POS with the credentials in the form — a real side effect
+  on someone else's Commander), `.purpose-save`, `#upload-image-btn`, `#sync-now-btn`,
+  and the will-call release/delete/assign form submits
+- Commander 1.0.0-20260713-175438 fixes the black-on-black Templates dropdowns, so
+  `templates-defaults-card` and `templates-purpose-pill` are unheld and published.
+  `templates-defaults-pair` stays held — its blocker was never the colour, it asks for
+  a "Saved tick" that only exists after a write
+
+  Two defects found while shooting, both worth fixing in `sosh`:
+  - `/admin/sales-orders`: the **Sync now button is invisible**. It carries Bootstrap's
+    `btn-outline-light` (white on white) on a near-white page. The primary action on
+    the page cannot be seen by anyone. `sales-orders-page` is held on it
+  - Designer: **the Image Library cannot be opened at all**. `designer/index.html`
+    declares `id="library-modal"` twice, so `getElementById` returns the Shared Template
+    Library and the Image Library never leaves `display:none` — the feature c06
+    documents is unreachable in the UI
+
+### 0.5.0 (2026-07-13)
+- Phase 4: the gated-content batch — seven lessons authored to their final paths,
+  in nav, with `!!! screenshot` placeholders; device/hardware validation stays a
+  pre-publish gate (offline-QR E2E, multi-product walks, C6 image-render bug,
+  will-call hardware validation — tracker `2026-07-11-guardian-training-docs.md`)
+- New module: "Staff phones" (`docs/owners/phones/`): index + D2 pair-a-phone
+  (offline QR, wizard walk, Provisioned/Active badges, wrong-store) + D5
+  feature toggles (five switches, fail-open, propagation timing)
+- New module: "Running the store" (`docs/owners/operations/`): index + E6
+  will-call pickup signs (bins, assign, Pickup/release)
+- Templates module gains C6 pictures-and-image-placeholder (Image Library,
+  one-per-template placeholder, exact-resolution rule, console Images page) and
+  C11 multi-product templates (Template Parameters slots, numbered bindings,
+  console grid assignment, staged-vs-push contrast)
+- Staff track gains F4 multi-product tags and F6 will-call pickup signs
+- 20 new `!!! screenshot` placeholders (`wizard-*`, `mobile-devices-table-active`,
+  `system-mobile-features`, `willcall-*` ×3 console, `image-*`/`images-page`,
+  `template-params-multi`, `multi-product-*`, `tag-detail-*`, `willcall-*` ×3 app);
+  4 new `!!! video` placeholders (C11, D2, F4, F6); reuses the captured
+  `mobile-devices-pairing-qr` shot
+- Retire every "coming soon" these lessons fulfil: templates index, c04, c05/c10
+  Next chain, c12 closer, f3 (Multi-product button + Next), a7 hand-off,
+  data-fields order section, FAQ will-call entry
+- Fix `mkdocs.commander.yml` nav: the Phase 3 "Connecting your POS" section was
+  never mirrored into the commander build's nav override — on-device help was
+  missing the whole POS module
+
+### 0.4.0 (2026-07-13)
+- Phase 3: Module B — "Connecting your POS" (`docs/owners/pos/`): overview router,
+  B0 how-sync-works, B1 SQL-database POS (Logivision), B2 Spire, B4 Local API,
+  B5 sales orders, B6 troubleshooting — all in nav ahead of Templates
+- B3 (Odoo) authored but held for GA validation in `docs/drafts/b3-odoo.md`
+  (the draft gate keeps it out of published builds); the module index lists
+  Odoo as "coming soon" with no link
+- First pages written to the settled taxonomy: the appliance is "your
+  Commander", the console stays "the Guardian console". The 25 earlier pages
+  still say "your Guardian" for the box — the site-wide cleanup sweep is a
+  separate, still-owed pass
+- 8 new `!!! screenshot` placeholders (`pos-localdb-*`, `pos-spire-*`,
+  `pos-odoo-*`, `pos-localapi-keys`, `sales-orders-*`); reuses the two
+  already-captured POS shots (`pos-config-tabs`, `products-page-synced`)
+- a4 now links its hand-off line to the new module
 
 ### 0.3.0 (2026-07-13)
 - Add `tools/shotwalker/`: a Playwright harness that walks the Commander console

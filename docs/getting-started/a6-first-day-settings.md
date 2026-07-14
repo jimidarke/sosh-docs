@@ -17,8 +17,7 @@ When staff bind a tag from a store handheld, they don't choose a layout — the 
 4. Pick a template in the **Onsale** dropdown for each size too. Setting both Normal and Onsale links them as a pair: tags flip to the sale look automatically while a product's sale dates are active, then flip back when the sale ends. No manual switching — it's driven by the sale dates in your point-of-sale system (POS).
 5. Watch for the **Saved** tick after each pick — changes save instantly, with no save button to click.
 
-!!! screenshot "Screenshot: Templates page Defaults card, with one row's Normal and Onsale dropdowns highlighted"
-    To capture: assets/console/templates-defaults-card.png
+![Templates page Defaults card, with one row's Normal and Onsale dropdowns outlined](../assets/console/templates-defaults-card.png)
 
 ??? note "The other Defaults rows"
     Below Price tags you'll see rows for Pick-by-Light, Will-call, and Weather. Those belong to features covered in later lessons — you can leave them empty for now.

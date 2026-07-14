@@ -72,7 +72,7 @@ Your POS's own extra fields. Once your POS is connected, they appear in the drop
 
 ## Order and will-call fields
 
-Used on will-call pickup-sign templates: order number, customer details, pickup code, and bin label. The will-call lessons are coming soon.
+Used on will-call pickup-sign templates: order number, customer details, pickup code, and bin label. See [Set up will-call pickup signs](../owners/operations/e6-will-call-signage.md).
 
 ## Weather fields
 

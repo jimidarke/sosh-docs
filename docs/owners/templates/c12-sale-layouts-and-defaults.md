@@ -17,8 +17,7 @@ A template's purpose is its job: Normal price, On-sale, Pick-by-Light (idle and 
 2. Look at your template cards. Each one shows a **purpose pill** — a small label naming its job.
 3. To change one, click the pill, pick the right purpose from the dropdown, then click the **checkmark** to confirm.
 
-!!! screenshot "Screenshot: a template card with its purpose pill dropdown open, the checkmark button highlighted"
-    To capture: assets/console/templates-purpose-pill.png
+![A template card with its purpose pill dropdown open, the checkmark button outlined](../../assets/console/templates-purpose-pill.png)
 
 !!! warning "Fix the pill before anything else"
     Downloaded and imported templates often arrive with the wrong purpose. Check the pill first — only templates with the correct purpose (and marked active) appear in the Defaults dropdowns below. A "missing" template is almost always a mislabeled one.
@@ -70,6 +69,6 @@ To move a design between stores, use the file buttons: the download button on a 
 
 ## You've finished the module
 
-That's the loop closed: design in the Designer, then purpose, pair, and default on the console — and your shelves take care of themselves. Revisit any lesson from the [module index](index.md). Two more lessons are coming soon: pictures and image placeholders, and multi-product templates.
+That's the loop closed: design in the Designer, then purpose, pair, and default on the console — and your shelves take care of themselves. Revisit any lesson from the [module index](index.md) — and if you skipped them on the way through, [pictures and image placeholders](c06-pictures-and-image-placeholder.md) and [multi-product templates](c11-multi-product-templates.md) are both worth a look.
 
 **Next:** [Template purposes reference](../../reference/template-purposes.md) — keep it handy while you sort your library.

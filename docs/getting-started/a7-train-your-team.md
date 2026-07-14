@@ -19,7 +19,7 @@ Each phone needs a one-time introduction to your store.
 3. On the phone, follow the first-run wizard. When the camera opens, point the phone at the QR code on your computer screen.
 4. Click **Refresh** on the **Bound mobile devices** table. The phone appears with a green **Active** badge.
 
-Repeat for each phone. That's the short version — the upcoming Setting up staff phones lessons walk through every wizard screen, plus what to do when a phone is replaced or moves to another store.
+Repeat for each phone. That's the short version — [Pair a phone](../owners/phones/d2-pair-a-phone.md) walks through every wizard screen, and its module covers the rest of phone ownership.
 
 !!! tip "Scan the screen, not a printout"
     Pairing codes expire every 10 minutes, and the page quietly swaps in a new one before that happens. A printed or photographed code stops working fast — always scan the code live on your screen.
@@ -69,4 +69,4 @@ That's the whole setup — your store is running on Sovereign Shelf. From here o
 **A name isn't showing on a phone** — the phones pick up roster changes on their own. Give it a minute, then check the name picker again.
 <!-- REVIEW: confirm how quickly Staff Roster changes reach the phones' name picker -->
 
-**Next:** [Look up a product](../staff/f2-look-up-a-product.md) — skim the staff lessons yourself, so you know exactly what your team sees. Deeper owner guides — connecting your POS, designing your own templates, and running the store day to day — are coming next.
+**Next:** [Look up a product](../staff/f2-look-up-a-product.md) — skim the staff lessons yourself, so you know exactly what your team sees. Then the deeper owner guides await: [connecting your POS](../owners/pos/index.md), [designing your templates](../owners/templates/index.md), [setting up staff phones](../owners/phones/index.md), and [running the store](../owners/operations/index.md).

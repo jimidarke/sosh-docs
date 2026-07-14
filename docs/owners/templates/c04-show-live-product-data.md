@@ -17,7 +17,7 @@ This lesson is the core skill of the whole module. Here is the idea in two sente
 
 1. Click a text object on the canvas to select it. Binding works the same way on paragraphs, barcodes, QR codes, icons, and pictures.
 2. In the Properties panel on the right, find the **Data Binding** section.
-3. Keep the mode toggle on **Single Product**. The other mode is for large labels that show several products at once — that's covered in the multi-product templates lesson (coming soon).
+3. Keep the mode toggle on **Single Product**. The other mode is for large labels that show several products at once — that's covered in [Multi-product templates](c11-multi-product-templates.md).
 4. If you see a Product / Order / Weather choice, leave it on **Product**. That's the one for price labels.
 5. Open the **Field** dropdown. Fields come in groups so they're easy to find: Product (names and descriptions), Pricing, Identifiers (SKU and barcode), Inventory, Details, Supplier, Price Levels, your point-of-sale system's (POS) custom fields, and more. The full catalogue is in the [data fields reference](../../reference/data-fields.md).
 6. Pick a field — for example, the product's name. That's it. Your sample text stays on the canvas as a stand-in, but at print time the product's real value appears in its place.

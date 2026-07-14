@@ -72,4 +72,4 @@ The sanity check is one click away:
 
 **You can't click a small object** — select it from the Layers list instead. Naming your objects makes this painless.
 
-**Next:** [Add barcodes and QR codes](c07-barcodes-and-qr-codes.md) — the pictures lesson (c06) is coming soon, so we skip ahead for now.
+**Next:** [Add pictures and image placeholders](c06-pictures-and-image-placeholder.md)

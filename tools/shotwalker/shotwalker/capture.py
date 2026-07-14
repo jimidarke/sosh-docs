@@ -102,6 +102,82 @@ class Shooter:
         return self.result
 
 
+class AppShooter:
+    """Bound to one handheld and one target; app recipes call it as `shoot(...)`.
+
+    The same contract as Shooter -- subject, highlight, mask -- but there is no DOM to
+    hang a CSS outline on, so the callout is drawn onto the bitmap instead. `subject`
+    and `highlight` take node text (or a Node) rather than selectors.
+    """
+
+    def __init__(self, device, target: str, out_dir: Path):
+        self.device = device
+        self.target = target
+        self.out_dir = out_dir
+        self.result: ShotResult | None = None
+
+    def _resolve(self, ref):
+        from .adb import Node
+
+        if isinstance(ref, Node):
+            return ref
+        return self.device.need(ref)
+
+    def __call__(
+        self,
+        subject=None,
+        *,
+        highlight=None,
+        pad: int = 12,
+    ) -> ShotResult:
+        from PIL import ImageDraw
+
+        from . import redact as _redact
+
+        out = self.out_dir / Path(self.target).name
+        out.parent.mkdir(parents=True, exist_ok=True)
+
+        try:
+            img = self.device.screen().convert("RGB")
+            draw = ImageDraw.Draw(img)
+
+            # Blank the secrets first, so nothing sensitive survives even a crash
+            # between here and the save -- same reasoning as the browser's mask=.
+            for box in _redact.app_masks(self.device):
+                draw.rectangle(box, fill=config.MASK_COLOUR)
+
+            if highlight:
+                refs = highlight if isinstance(highlight, (list, tuple)) else [highlight]
+                for ref in refs:
+                    l, t, r, b = self._resolve(ref).box
+                    draw.rounded_rectangle(
+                        (l - 6, t - 6, r + 6, b + 6),
+                        radius=8,
+                        outline=config.HIGHLIGHT_COLOUR,
+                        width=4,
+                    )
+
+            if subject is not None:
+                l, t, r, b = self._resolve(subject).box
+                img = img.crop(
+                    (
+                        max(l - pad, 0),
+                        max(t - pad, 0),
+                        min(r + pad, img.width),
+                        min(b + pad, img.height),
+                    )
+                )
+
+            img.save(out, optimize=True)
+        except Exception as exc:
+            self.result = ShotResult(self.target, out, ok=False, error=str(exc))
+            return self.result
+
+        _downscale(out, config.DOC_IMAGE_WIDTH)
+        self.result = ShotResult(self.target, out, ok=True)
+        return self.result
+
+
 def _downscale(path: Path, width: int) -> None:
     """Shrink to the 720px width the existing docs/assets/app/ captures use.
 

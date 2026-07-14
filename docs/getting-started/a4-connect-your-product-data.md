@@ -9,7 +9,7 @@
 
 Every product and price on your shelf tags comes from your POS. There is no form for typing products in by hand. The Guardian reads your catalog straight from the POS, so the shelf always matches the register.
 
-This lesson gets your first sync running. Each POS also gets its own detailed walkthrough later, in the Connecting your POS lessons — SQL-database systems like Logivision, Spire, Odoo, and the Local API for custom integrations.
+This lesson gets your first sync running. Each POS also gets its own detailed walkthrough later, in the [Connecting your POS](../owners/pos/index.md) lessons — SQL-database systems like Logivision, Spire, Odoo, and the Local API for custom integrations.
 
 1. In the Guardian console, click **POS** in the left menu, under **Configuration**.
 2. Pick the tab that matches your system. There are four tabs, one per source type:

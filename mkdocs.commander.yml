@@ -92,7 +92,17 @@ nav:
   - Staff:
       - Look up a product: staff/f2-look-up-a-product.md
       - Update a shelf tag: staff/f3-update-a-shelf-tag.md
+      - Multi-product tags: staff/f4-multi-product-tags.md
+      - Will-call pickup signs: staff/f6-will-call-pickup-signs.md
   - Owners:
+      - Connecting your POS:
+          - Overview: owners/pos/index.md
+          - How product sync works: owners/pos/b0-how-sync-works.md
+          - Connect a SQL-database POS: owners/pos/b1-sql-database-pos.md
+          - Connect Spire: owners/pos/b2-spire.md
+          - Connect a custom system with the Local API: owners/pos/b4-local-api.md
+          - Bring in sales orders: owners/pos/b5-sales-orders.md
+          - Fix POS problems: owners/pos/b6-troubleshooting.md
       - Templates:
           - Overview: owners/templates/index.md
           - Understand templates: owners/templates/c01-templates-101.md
@@ -100,11 +110,20 @@ nav:
           - Add text: owners/templates/c03-text-and-paragraphs.md
           - Show live product data: owners/templates/c04-show-live-product-data.md
           - Draw shapes and use the three colours: owners/templates/c05-shapes-lines-and-colours.md
+          - Add pictures and image placeholders: owners/templates/c06-pictures-and-image-placeholder.md
           - Add barcodes and QR codes: owners/templates/c07-barcodes-and-qr-codes.md
           - Add icons and smart show/hide rules: owners/templates/c08-icons-and-conditional-rules.md
           - Layout like a pro: owners/templates/c09-layout-like-a-pro.md
           - Preview with real products: owners/templates/c10-preview-with-real-products.md
+          - Multi-product templates: owners/templates/c11-multi-product-templates.md
           - "Put templates to work: purposes, sale pairs, and defaults": owners/templates/c12-sale-layouts-and-defaults.md
+      - Staff phones:
+          - Overview: owners/phones/index.md
+          - Pair a phone: owners/phones/d2-pair-a-phone.md
+          - Choose which features staff see: owners/phones/d5-feature-toggles.md
+      - Running the store:
+          - Overview: owners/operations/index.md
+          - Set up will-call pickup signs: owners/operations/e6-will-call-signage.md
   - Reference:
       - FAQ: reference/faq.md
       - Data fields: reference/data-fields.md

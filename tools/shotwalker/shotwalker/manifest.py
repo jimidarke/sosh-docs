@@ -128,7 +128,16 @@ def orphans(docs_dir: Path | None = None) -> list[tuple[Path, int]]:
 # qa-walkthrough; `hardware/` needs a camera; `branding/` is artwork.
 BROWSER_SURFACES = ("console", "designer")
 
+# The handheld, driven over adb rather than by a browser. Kept as its own tuple
+# because the difference is not cosmetic: the browser surfaces are reveal-only and
+# guarded, and this one writes.
+DEVICE_SURFACES = ("app",)
+
+# Everything a machine can take. `hardware` is the remainder -- photographs of the
+# kit on a bench, which no harness is ever going to produce.
+AUTOMATABLE_SURFACES = BROWSER_SURFACES + DEVICE_SURFACES
+
 
 def capturable(specs: list[ShotSpec]) -> list[ShotSpec]:
-    """The ones a browser can take."""
-    return [s for s in specs if s.surface in BROWSER_SURFACES]
+    """The ones a machine can take -- browser or handheld."""
+    return [s for s in specs if s.surface in AUTOMATABLE_SURFACES]

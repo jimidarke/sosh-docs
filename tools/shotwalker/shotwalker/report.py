@@ -8,6 +8,9 @@ disk. Each disagreement means something different and gets its own name:
   stale    a recipe whose target no longer appears in any doc -- delete it
   failed   a recipe that ran and produced nothing
   held     captured, but withheld from the docs on purpose (a known UI bug)
+  blocked  no recipe is *possible* -- the shot's subject is a masked secret, or
+           reaching it would need a write. Distinct from a gap on purpose: a gap
+           is a to-do, and a to-do list that can never reach zero stops being read.
 
 Keeping those distinct is the point. "27 of 29" tells you nothing; "2 gaps, 0
 stale, 0 failed" tells you exactly what to do next.
@@ -47,9 +50,14 @@ def coverage(specs: list[manifest.ShotSpec], recipe_targets: set[str]) -> dict:
     live = {
         t
         for t in manifest.referenced()
-        if t.split("/")[1] in manifest.BROWSER_SURFACES
+        if t.split("/")[1] in manifest.AUTOMATABLE_SURFACES
     }
     wanted = pending | live
+
+    # A blocked shot has no recipe and never will, so it is not a gap. Subtracting
+    # it keeps `gaps` meaning "write this recipe" -- the number that should reach
+    # zero -- instead of a list with a permanent floor in it.
+    blocked = {t for t in wanted if known_issues.is_blocked(t)}
 
     return {
         "placeholders_open": len(specs),
@@ -58,7 +66,8 @@ def coverage(specs: list[manifest.ShotSpec], recipe_targets: set[str]) -> dict:
         "capturable": sorted(wanted),
         "covered": sorted(wanted & recipe_targets),
         "pending": sorted(pending),
-        "gaps": sorted(wanted - recipe_targets),
+        "gaps": sorted(wanted - recipe_targets - blocked),
+        "blocked": sorted(blocked),
         "stale": sorted(recipe_targets - wanted),
         "held": sorted(t for t in wanted if known_issues.is_held(t)),
         "orphans": [f"{p}:{ln}" for p, ln in manifest.orphans()],
@@ -156,6 +165,7 @@ def write(
     L.append(f"- Held (known UI bug): **{len(held)}**")
     L.append(f"- Failed: **{len(failed)}**")
     L.append(f"- Gaps (no recipe): **{len(cov['gaps'])}**")
+    L.append(f"- Blocked (no recipe possible): **{len(cov['blocked'])}**")
     L.append(f"- Stale (recipe, no placeholder): **{len(cov['stale'])}**")
     L.append(f"- Hardware photos (not automatable): **{len(cov['hardware_only'])}**\n")
 
@@ -163,6 +173,17 @@ def write(
         L.append("### Gaps — the docs ask for these, no recipe exists\n")
         for t in cov["gaps"]:
             L.append(f"- `{t}`")
+        L.append("")
+    if cov["blocked"]:
+        L.append("### Blocked — no recipe is possible\n")
+        L.append(
+            "The docs ask for these and always will, but the walker cannot take them: "
+            "the subject is a masked secret, or reaching it needs a write. They are "
+            "listed apart from gaps so the gap list stays a to-do list. Re-spec the "
+            "placeholder, or shoot it by hand.\n"
+        )
+        for t in cov["blocked"]:
+            L.append(f"- `{t}` — {known_issues.blocked_reason(t)}")
         L.append("")
     if cov["stale"]:
         L.append("### Stale — recipe exists, no doc asks for it\n")
@@ -216,6 +237,7 @@ def print_check(cov: dict) -> None:
     print(f"covered by a recipe  : {len(cov['covered'])}")
     print(f"hardware photos      : {len(cov['hardware_only'])}")
     print(f"gaps                 : {len(cov['gaps'])}")
+    print(f"blocked (can't shoot): {len(cov['blocked'])}")
     print(f"stale                : {len(cov['stale'])}")
     print(f"held (known UI bug)  : {len(cov['held'])}")
     print(f"orphan placeholders  : {len(cov['orphans'])}")
@@ -224,6 +246,11 @@ def print_check(cov: dict) -> None:
         print("\nGAPS — docs ask for these, no recipe:")
         for t in cov["gaps"]:
             print(f"  {t}")
+    if cov["blocked"]:
+        print("\nBLOCKED — no recipe is possible; re-spec or hand-shoot:")
+        for t in cov["blocked"]:
+            print(f"  {t}")
+            print(f"      {known_issues.blocked_reason(t).split(' -- ')[0]}")
     if cov["stale"]:
         print("\nSTALE — recipe exists, no doc asks for it:")
         for t in cov["stale"]:
@@ -235,3 +262,8 @@ def print_check(cov: dict) -> None:
             print(f"  {o}")
     if not cov["gaps"] and not cov["stale"]:
         print("\nEvery capturable placeholder has a recipe, and no recipe is orphaned.")
+        if cov["blocked"]:
+            print(
+                f"({len(cov['blocked'])} blocked shot(s) remain, by design — "
+                "they need a re-spec or a hand-shot, not a recipe.)"
+            )

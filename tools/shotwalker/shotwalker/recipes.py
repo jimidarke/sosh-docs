@@ -38,7 +38,7 @@ def recipe(target: str, surface: str) -> Callable[[Recipe], Recipe]:
 
 def all_recipes() -> dict[str, RegisteredRecipe]:
     # Import for side effects: the decorators populate the registry.
-    from . import walk_console, walk_designer  # noqa: F401
+    from . import walk_app, walk_console, walk_designer  # noqa: F401
 
     return dict(_REGISTRY)
 

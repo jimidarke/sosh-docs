@@ -13,12 +13,12 @@ One thing to know up front: the Designer runs on a desktop or laptop computer. I
 3. [Add text](c03-text-and-paragraphs.md) — put words on a label, and learn when to use single-line text and when to use a paragraph.
 4. [Show live product data](c04-show-live-product-data.md) — connect your design to your POS so the label always shows the real price. This is the skill everything else builds on.
 5. [Shapes, lines, and the three colours](c05-shapes-lines-and-colours.md) — draw boxes and dividers, and work within the label's three colours: white, black, and red.
-6. Pictures and image placeholders — coming soon.
+6. [Pictures and image placeholders](c06-pictures-and-image-placeholder.md) — put your logo on a label, or add a picture frame whose photo is chosen tag by tag.
 7. [Barcodes and QR codes](c07-barcodes-and-qr-codes.md) — add a scannable barcode, or a QR code that sends shoppers to a web page.
 8. [Icons and smart show/hide rules](c08-icons-and-conditional-rules.md) — drop in ready-made icons, and set rules like "show this SALE burst only while the product is on sale."
 9. [Layout like a pro](c09-layout-like-a-pro.md) — line everything up neatly with alignment tools, layers, and time-saving shortcuts.
 10. [Preview with real products](c10-preview-with-real-products.md) — see exactly what a label will look like with one of your real products, before anything reaches the shelf.
-11. Multi-product templates — coming soon.
+11. [Multi-product templates](c11-multi-product-templates.md) — design a large label that shows several products at once, and load it up from the console.
 12. [Sale layouts and store defaults](c12-sale-layouts-and-defaults.md) — give each template a purpose, pair a sale layout with its everyday one, and set the defaults your whole store falls back on.
 
 ## Keep these handy

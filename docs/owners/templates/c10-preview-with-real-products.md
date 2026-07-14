@@ -43,7 +43,7 @@ One good-looking preview is not enough. Search for these three products and prev
     The **Push** button in the top toolbar opens a dialog where **Render Preview** works — but its **Push to Tag** button is disabled on your Guardian. That is by design. Templates reach real tags by being [bound to a tag](../../getting-started/a5-bind-your-first-tag.md) or [set as a store default](c12-sale-layouts-and-defaults.md) — never from inside the Designer.
 
 ??? note "Designing a will-call or order template?"
-    Switch the **Data Binding** domain toggle from Product to **Order**. The left panel relabels itself to Order and searches by order number instead of SKU or name. The will-call lessons are coming soon.
+    Switch the **Data Binding** domain toggle from Product to **Order**. The left panel relabels itself to Order and searches by order number instead of SKU or name. See [Set up will-call pickup signs](../operations/e6-will-call-signage.md) for what those templates do.
 
 ## Check your work
 
@@ -58,4 +58,4 @@ One good-looking preview is not enough. Search for these three products and prev
 - **A line in the preview is blank** — that product lacks the field you bound. See [Show live product data](c04-show-live-product-data.md) for what prints when a field is missing.
 - **"Push to Tag" is greyed out in the Push dialog** — that's on purpose. Push by binding the template to tags or setting it as a default from the Guardian console.
 
-**Next:** [Set sale layouts and store defaults](c12-sale-layouts-and-defaults.md). (The multi-product templates lesson is coming soon.)
+**Next:** [Multi-product templates](c11-multi-product-templates.md)

@@ -16,6 +16,8 @@ Two classes of mask, and the difference is deliberate:
 
 from __future__ import annotations
 
+import re
+
 from playwright.sync_api import Locator, Page
 
 # Credentials, keys, and PINs. Never allowed into an image.
@@ -59,6 +61,30 @@ VOLATILE_SELECTORS = [
     ".nav-pill",
     "[data-relative-time]",
 ]
+
+
+# The handheld. Same rule as the console, different mechanism: there is no DOM to
+# hang a selector on, so nodes are matched on their *text* and the region is painted
+# out before the bitmap is written.
+#
+# The store id is the one that matters and it is easy to miss, because it only shows
+# on the app's lock screen -- which is not a screen any doc asks for, right up until
+# somebody captures a flow that happens to start there. It is an internal identifier
+# for a customer's store, and this repo is public.
+APP_SECRET_PATTERNS = [
+    re.compile(r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}", re.I),
+    re.compile(r"\bStore\s+[0-9a-f-]{8,}", re.I),
+]
+
+
+def app_masks(device) -> list[tuple[int, int, int, int]]:
+    """Regions to paint out on a handheld screenshot."""
+    boxes = []
+    for node in device.dump():
+        blob = f"{node.text} {node.desc}"
+        if any(p.search(blob) for p in APP_SECRET_PATTERNS):
+            boxes.append(node.bounds)
+    return boxes
 
 
 def secret_masks(page: Page, path: str = "") -> list[Locator]:

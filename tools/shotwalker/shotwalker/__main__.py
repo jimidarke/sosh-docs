@@ -57,14 +57,42 @@ def _sweep_console(page, run_dir: Path) -> tuple[list[PageHealth], str]:
     return health, version
 
 
-def _shoot(page, reg, run_dir: Path, publish: bool) -> ShotResult:
-    """Run one recipe. Held shots land in artifacts only, never in docs/."""
-    held = known_issues.is_held(reg.target)
-    out_dir = (
-        config.DOCS_DIR / Path(reg.target).parent
+def _out_dir(target: str, run_dir: Path, publish: bool) -> Path:
+    held = known_issues.is_held(target)
+    return (
+        config.DOCS_DIR / Path(target).parent
         if publish and not held
         else run_dir / "held"
     )
+
+
+def _shoot_app(device, reg, run_dir: Path, publish: bool) -> ShotResult:
+    """Run one handheld recipe. No guards apply here -- see adb.py."""
+    out_dir = _out_dir(reg.target, run_dir, publish)
+    shooter = capture.AppShooter(device, reg.target, out_dir)
+    try:
+        reg.fn(device, shooter)
+    except Exception as exc:
+        return ShotResult(reg.target, out_dir / Path(reg.target).name, ok=False, error=str(exc))
+
+    result = shooter.result
+    if result is None:
+        return ShotResult(
+            reg.target,
+            out_dir / Path(reg.target).name,
+            ok=False,
+            error="recipe never called shoot()",
+        )
+    if known_issues.is_held(reg.target):
+        result.held = True
+        result.note = known_issues.reason(reg.target)
+    return result
+
+
+def _shoot(page, reg, run_dir: Path, publish: bool) -> ShotResult:
+    """Run one recipe. Held shots land in artifacts only, never in docs/."""
+    held = known_issues.is_held(reg.target)
+    out_dir = _out_dir(reg.target, run_dir, publish)
 
     shooter = capture.Shooter(page, reg.target, out_dir)
     try:
@@ -90,8 +118,8 @@ def _shoot(page, reg, run_dir: Path, publish: bool) -> ShotResult:
 
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="shotwalker")
-    p.add_argument("--all", action="store_true", help="walk both surfaces")
-    p.add_argument("--surface", choices=["console", "designer"])
+    p.add_argument("--all", action="store_true", help="walk every surface")
+    p.add_argument("--surface", choices=["console", "designer", "app"])
     p.add_argument("--only", metavar="TARGET", help="re-shoot one target, e.g. assets/designer/icon-picker.png")
     p.add_argument("--check", action="store_true", help="coverage report only; no browser")
     p.add_argument("--smoke-only", action="store_true", help="health checks; capture nothing")
@@ -134,7 +162,7 @@ def main(argv: list[str] | None = None) -> int:
 
     surfaces: list[str] = []
     if args.all:
-        surfaces = ["console", "designer"]
+        surfaces = ["console", "designer", "app"]
     elif args.surface:
         surfaces = [args.surface]
     elif args.only:
@@ -185,6 +213,33 @@ def main(argv: list[str] | None = None) -> int:
                     shots.append(r)
                     state = "held" if r.held else ("ok" if r.ok else "FAIL")
                     print(f"  [{state:>4}] {target}" + (f" — {r.error}" if not r.ok else ""))
+
+    # The handheld, outside the browser context entirely. A missing phone is not a
+    # failed run: the other two surfaces are the ones with a device-independent
+    # contract, and a laptop with no phone plugged in should still be able to refresh
+    # the console images.
+    if "app" in surfaces and not args.smoke_only:
+        from . import adb
+
+        todo = (
+            {args.only: registry[args.only]}
+            if args.only
+            else recipes.for_surface("app")
+        )
+        try:
+            device = adb.Device()
+        except adb.AdbError as exc:
+            print(f"\nHandheld — skipped: {exc}")
+            device = None
+
+        if device is not None:
+            print(f"\nHandheld — {device.serial}")
+            device.wake()
+            for target, reg in sorted(todo.items()):
+                r = _shoot_app(device, reg, run_dir, publish)
+                shots.append(r)
+                state = "held" if r.held else ("ok" if r.ok else "FAIL")
+                print(f"  [{state:>4}] {target}" + (f" — {r.error}" if not r.ok else ""))
 
     path = report.write(
         run_dir,
