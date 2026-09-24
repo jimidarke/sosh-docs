@@ -4,7 +4,7 @@
 
 **Before you start:**
 
-- Your handheld is unlocked. If the lock screen is up, enter your staff PIN.
+- Your handheld is unlocked. If the lock screen is up, enter your staff PIN, then tap your name if the phone asks who's using it.
 - You can see the **Tags** tab at the bottom of the screen. If it's missing, this feature is turned off for your store — ask your manager.
 
 !!! video "Watch: Update a shelf tag (~4 min)"

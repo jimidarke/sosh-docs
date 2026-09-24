@@ -37,6 +37,14 @@ The names appear in the name picker on every phone. When someone picks their nam
 
 Tell your team the 6-digit staff PIN you set in [First-day settings](a6-first-day-settings.md). The phones lock when they sit idle, and this PIN unlocks them. Everyone in the store shares the same one.
 
+After the PIN, the phone may ask who's using it:
+
+- **Who's using this phone?** The phone has no name picked. Staff must tap their name to continue. **Default** sits at the bottom of the list, but work done as Default isn't credited to anyone.
+- **Still you?** The phone sat unused for three hours or more. Tap **Continue** if it's you, or tap your own name.
+- **No question.** The same person picked the phone back up within three hours, so it carries on as them.
+
+Names are listed with whoever used that phone most recently first, so regulars find their own name near the top.
+
 ## 4. Hand your team their guide
 
 Send your staff these two short lessons — each takes about five minutes:

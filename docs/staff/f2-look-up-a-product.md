@@ -5,6 +5,7 @@
 **Before you start:**
 
 - You have a store handheld, unlocked with the staff PIN. Ask your manager if you don't know it.
+- If the phone asks who's using it, tap your name.
 
 !!! video "Watch: Look up a product (~3 min)"
     Video coming soon — the written steps below cover everything.
