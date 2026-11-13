@@ -72,6 +72,20 @@ The owner turned that feature off. The toggles live on the console's System page
 
 The phone is on another store's network. Move it back to your store, and it works again. If the phone should belong to this store, reset it and pair it fresh. See [Train your team](../getting-started/a7-train-your-team.md).
 
+### The handheld is stuck on the PIN screen and won't sign in
+
+The phone can't reach the Guardian. Usually its Wi-Fi is off, or it has dropped off the store network. The staff PIN is checked by the Guardian, so it can't work until the phone is back on the network.
+
+1. **Check the Wi-Fi first.** Tap the network icon at the top of the PIN screen, then **Change Wi-Fi**, and rejoin your store network. Most of the time that's all it takes.
+2. **Still stuck? A manager can get into Settings without a network.** Tap the small **Sovereign Shelf** text at the bottom of the PIN screen five times quickly, then enter the manager PIN. The phone checks it itself, so it works offline.
+3. From Settings:
+    - **Reset deployment** makes the phone forget its pairing. Then plug it back into the Guardian's phone dock to pair it again. See [Pair a phone](../owners/phones/d2-pair-a-phone.md).
+    - **Exit app** opens the phone's own Android settings, including Wi-Fi and a full phone reset. A full reset erases everything on the phone. Contact support before using it, because the phone needs extra setup before the dock can pair it again.
+
+If the phone is on the lock screen rather than the PIN screen, tap **Sign out** first to get to the PIN screen.
+
+Don't know the manager PIN? Email Sovereign Shelf support (support@sovereignshelf.com).
+
 ### The barcode scanner stopped working after a phone reset
 
 A reset wipes the scanner's Bluetooth pairing. A manager needs to re-pair it in the app's Settings, which is protected by the manager PIN. One more thing: the scanner status icon's colour isn't reliable — test with a real scan instead of waiting for it to turn green.
